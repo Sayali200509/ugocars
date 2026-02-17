@@ -1,5 +1,5 @@
 import React from "react";
-import "./Hero.css";
+import "./Home.css";
 import carImage from "../images/car.jpg";
 
 /* ── icon SVGs inlined to avoid any dependency ── */
@@ -77,7 +77,7 @@ const trustBadges = [
   { icon: <Support247Icon />, label: "24/7 Support" },
 ];
 
-export default function HeroSection() {
+export default function Home() {
   return (
     <section className="hero" style={{
       backgroundImage: `url(${carImage})`,

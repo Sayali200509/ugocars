@@ -1,12 +1,17 @@
-import Hero from "./components/Hero";
+import Navbar   from "./components/Navbar";
+import Home     from "./components/Home";
+import Desktop1 from "./components/Desktop1";
+import Desktop2 from "./components/Desktop2";
 import "./App.css";
-import Navbar from "./components/Navbar";
 
 export default function App() {
   return (
     <div className="app">
-      <Hero />
-      <Navbar />
+      <Home />      {/* hero section with car image */}
+      <Navbar />    {/* navbar below hero */}
+      <Desktop1 />  {/* "Your Journey, Your Freedom" section */}
+      <Navbar />    {/* navbar at bottom */}
+      <Desktop2 />  {/* "Renting is Super Easy" section */}
     </div>
   );
 }

@@ -1,0 +1,369 @@
+/* ================================================
+   Desktop1.css
+   File: src/components/Desktop1.css
+
+   Figma frame: Desktop - 1
+   All values exact from inspect panel
+   ================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* ── tokens ── */
+:root {
+  --d1-font            : 'Poppins', sans-serif;
+
+  /* Heading — "Your Journey, Your Freedom"
+     Poppins 700 Bold | 55px / 110px */
+  --d1-h2-size         : 55px;
+  --d1-h2-lh           : 110px;
+  --d1-h2-weight       : 700;
+  --d1-blue            : #5B5BD6;
+
+  /* Body text
+     Poppins 500 Medium | 20px / 35px | #615959
+     w:576  h:547  top:183  left:67 */
+  --d1-body-size       : 20px;
+  --d1-body-lh         : 35px;
+  --d1-body-weight     : 500;
+  --d1-body-color      : #615959;
+
+  /* Stat cards — Rectangle 5
+     w:247  h:134  radius:10  border:1px
+     bg: #0659FF 4%
+     border: #737171 40% */
+  --d1-card-w          : 247px;
+  --d1-card-h          : 134px;
+  --d1-card-radius     : 10px;
+  --d1-card-bg         : rgba(6, 89, 255, 0.04);
+  --d1-card-border     : 1px solid rgba(115, 113, 113, 0.40);
+
+  /* Stat title — Poppins 600  18px / 28px */
+  --d1-stat-title-size : 18px;
+  --d1-stat-title-lh   : 28px;
+  --d1-stat-title-w    : 600;
+
+  /* Stat subtitle — Poppins 400  18px / 28px (17px for happy customers) */
+  --d1-stat-sub-size   : 18px;
+  --d1-stat-sub-lh     : 28px;
+  --d1-stat-sub-w      : 400;
+
+  /* Image — w:677  h:452  radius:20
+     shadow: x4 y4 blur10 spread0  #000 25% */
+  --d1-img-w           : 677px;
+  --d1-img-h           : 452px;
+  --d1-img-radius      : 20px;
+  --d1-img-shadow      : 4px 4px 10px 0px rgba(0, 0, 0, 0.25);
+
+  /* Section */
+  --d1-pad-x           : 67px;
+  --d1-pad-y           : 80px;
+  --d1-max-w           : 1440px;
+}
+
+/* ────────────────────────────────────────────
+   SECTION
+──────────────────────────────────────────── */
+.desktop1 {
+  width: 100%;
+  background: #ffffff;
+  padding: var(--d1-pad-y) 0;
+  font-family: var(--d1-font);
+}
+
+.desktop1__inner {
+  max-width: var(--d1-max-w);
+  margin: 0 auto;
+  padding: 0 var(--d1-pad-x);
+
+  display: flex;
+  align-items: flex-start;
+  gap: 60px;
+}
+
+/* ────────────────────────────────────────────
+   LEFT COLUMN  w:576  left:67
+──────────────────────────────────────────── */
+.desktop1__left {
+  flex: 0 0 576px;
+  max-width: 576px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Heading ──
+   Poppins 700  55px / 110px
+   w:1222  top:42  left:-146 */
+.desktop1__heading {
+  font-family: var(--d1-font);
+  font-size: var(--d1-h2-size);     /* 55px */
+  font-weight: var(--d1-h2-weight); /* 700 */
+  line-height: var(--d1-h2-lh);     /* 110px */
+  letter-spacing: 0;
+  color: #1a1a1a;
+  margin: 0 0 24px 0;
+}
+
+.desktop1__heading--blue {
+  color: var(--d1-blue);            /* #5B5BD6 */
+}
+
+/* ── Body ──
+   Poppins 500  20px / 35px  #615959
+   w:576  h:547  top:183  left:67 */
+.desktop1__body {
+  font-family: var(--d1-font);
+  font-size: var(--d1-body-size);    /* 20px */
+  font-weight: var(--d1-body-weight);/* 500 */
+  line-height: var(--d1-body-lh);    /* 35px */
+  letter-spacing: 0;
+  color: var(--d1-body-color);       /* #615959 */
+  margin: 0 0 16px 0;
+  padding: 0;
+  max-width: 576px;
+  width: 100%;
+}
+
+.desktop1__body--last {
+  margin-bottom: 0;
+}
+
+/* ────────────────────────────────────────────
+   STAT CARDS ROW — BOTTOM SECTION
+   Full width below content, cards in single row
+──────────────────────────────────────────── */
+.desktop1__stats-wrapper {
+  width: 100%;
+  background: #ffffff;
+  padding: 60px 0 80px 0;
+}
+
+.desktop1__stats {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 67px;
+  display: flex;
+  gap: 128px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+
+/* ── Single card  (Rectangle 5)
+   w:247  h:134  radius:10
+   bg:#0659FF 4%  border:1px #737171 40% ── */
+.desktop1__stat-card {
+  width: var(--d1-card-w);          /* 247px */
+  height: var(--d1-card-h);        /* 134px */
+  border-radius: var(--d1-card-radius); /* 10px */
+  background: var(--d1-card-bg);    /* rgba(6,89,255,0.04) */
+  border: var(--d1-card-border);    /* 1px #737171 40% */
+  padding: 12px 16px 16px 16px;
+  flex-shrink: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.desktop1__stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(91, 91, 214, 0.12);
+}
+
+/* ── Icon
+   charm:circle-tick  20×20  (Group12, Group11)
+   hugeicons:smile    34×34  (Group10) ── */
+.desktop1__stat-icon {
+  display: flex;
+  align-items: center;
+  height: 20px;
+  margin-bottom: 2px;
+}
+
+/* ── Text  (Group 8) ── */
+.desktop1__stat-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* title: Poppins SemiBold 600  18px / 28px */
+.desktop1__stat-title {
+  font-family: var(--d1-font);
+  font-size: var(--d1-stat-title-size);  /* 18px */
+  font-weight: var(--d1-stat-title-w);   /* 600 */
+  line-height: var(--d1-stat-title-lh);  /* 28px */
+  letter-spacing: 0;
+  color: #1a1a1a;
+  display: block;
+  margin: 0;
+}
+
+/* subtitle: Poppins Regular 400  18px / 28px (17px for Happy Customers) */
+.desktop1__stat-sub {
+  font-family: var(--d1-font);
+  font-size: var(--d1-stat-sub-size);   /* 18px / 17px */
+  font-weight: var(--d1-stat-sub-w);    /* 400 */
+  line-height: var(--d1-stat-sub-lh);   /* 28px */
+  letter-spacing: 0;
+  color: #615959;
+  display: block;
+  margin: 0;
+}
+
+/* Happy Customers subtitle override to 17px */
+.desktop1__stat-card:nth-child(2) .desktop1__stat-sub {
+  font-size: 17px;
+}
+
+/* ────────────────────────────────────────────
+   RIGHT COLUMN — IMAGE
+   w:677  h:452  top:191  left:694
+   radius:20  shadow: 4 4 10 0  #000 25%
+──────────────────────────────────────────── */
+.desktop1__right {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+
+.desktop1__img {
+  width: var(--d1-img-w);            /* 677px */
+  height: var(--d1-img-h);           /* 452px */
+  object-fit: cover;
+  border-radius: var(--d1-img-radius); /* 20px */
+  box-shadow: var(--d1-img-shadow);    /* 4 4 10 0 rgba(0,0,0,0.25) */
+  display: block;
+}
+
+/* ────────────────────────────────────────────
+   RESPONSIVE
+──────────────────────────────────────────── */
+@media (max-width: 1300px) {
+  .desktop1__inner {
+    padding: 0 40px;
+    gap: 40px;
+  }
+
+  .desktop1__left {
+    flex: 0 0 480px;
+    max-width: 480px;
+  }
+
+  .desktop1__img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    aspect-ratio: 677 / 452;
+  }
+
+  .desktop1__stats {
+    padding: 0 40px;
+    gap: 50px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .desktop1__inner {
+    flex-direction: column;
+    align-items: center;
+    padding: 0 32px;
+  }
+
+  .desktop1__left {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .desktop1__heading {
+    font-size: 42px;
+    line-height: 1.2;
+  }
+
+  .desktop1__right {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .desktop1__img {
+    width: 100%;
+    max-width: 677px;
+    height: auto;
+    aspect-ratio: 677 / 452;
+  }
+
+  .desktop1__stats {
+    padding: 0 32px;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .desktop1 {
+    padding: 48px 0;
+  }
+
+  .desktop1__heading {
+    font-size: 34px;
+    line-height: 1.2;
+  }
+
+  .desktop1__body {
+    font-size: 17px;
+    line-height: 28px;
+  }
+
+  .desktop1__stats {
+    padding: 0 24px;
+    flex-direction: row;
+    gap: 16px;
+    justify-content: flex-start;
+  }
+
+  .desktop1__stat-card {
+    flex: 1;
+    min-width: calc(50% - 8px);
+  }
+
+  .desktop1__stats-wrapper {
+    padding: 40px 0 60px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .desktop1__inner {
+    padding: 0 20px;
+  }
+
+  .desktop1__heading {
+    font-size: 28px;
+    line-height: 1.15;
+  }
+
+  .desktop1__body {
+    font-size: 15px;
+    line-height: 26px;
+  }
+
+  .desktop1__stat-card {
+    flex: 1 1 100%;
+    min-width: 100%;
+  }
+
+  .desktop1__stats {
+    padding: 0 20px;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .desktop1__stats-wrapper {
+    padding: 30px 0 50px 0;
+  }
+}
