@@ -1,0 +1,311 @@
+/* ================================================
+   Navbar.css
+   File: src/components/Navbar.css
+
+   ALL values taken directly from Figma inspect:
+
+   FRAME  (navbar)   — 1440 × 100px  (estimated from top:27 + h:46 + padding)
+   Logo              — circle icon, left side
+   Nav links         — Instrument Sans Bold 700 22px #737171  top:40
+     About           left: 286px
+     How it works?   left: 437px
+     Benefits        left: 664px
+     Locations       left: 837px
+     Contact         left: 1018px
+   CTA (Group 1)     — w:251 h:46 top:27 left:1232
+                       blue filled pill button
+   ================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;700&display=swap');
+
+/* ── Tokens ── */
+:root {
+  --nav-font       : 'Instrument Sans', sans-serif;
+  --nav-link-size  : 22px;      /* all nav text: 22px */
+  --nav-link-weight: 700;       /* Bold */
+  --nav-link-lh    : 100%;
+  --nav-link-ls    : 0%;
+  --nav-link-color : #737171;   /* exact Figma hex */
+  --nav-link-hover : #1a1a1a;
+
+  --nav-bg         : #ffffff;
+  --nav-h          : 100px;     /* full bar height */
+  --nav-padding-x  : 80px;      /* L/R padding on 1440 frame */
+
+  /* CTA button — Group 1 */
+  --cta-w          : 251px;
+  --cta-h          : 46px;
+  --cta-bg         : #4F46E5;   /* indigo/blue from design */
+  --cta-bg-hover   : #3730a3;
+  --cta-radius     : 8px;
+  --cta-font-size  : 16px;
+  --cta-font-weight: 700;
+  --cta-color      : #ffffff;
+
+  /* Logo */
+  --logo-size      : 52px;      /* circle logo diameter */
+}
+
+/* ────────────────────────────────────────
+   HEADER BAR
+──────────────────────────────────────── */
+.navbar {
+  position: relative; /* placed below the hero section */
+  width: 100%;
+  height: var(--nav-h);
+  background: var(--nav-bg);
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+  font-family: var(--nav-font);
+}
+
+/* inner row — max 1440px, centred */
+.navbar__inner {
+  max-width: 1440px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 var(--nav-padding-x);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0;
+}
+
+/* ────────────────────────────────────────
+   LOGO
+   The PNG is a dark circle with UGO Car Rentals
+   From Figma: image layer "Screenshot_2025-12-24…"
+   Approx position: left ~80px, vertically centred
+──────────────────────────────────────── */
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
+}
+
+.navbar__logo img {
+  width: var(--logo-size);    /* 52px */
+  height: var(--logo-size);
+  object-fit: contain;
+  display: block;
+  border-radius: 50%;         /* logo is circular */
+}
+
+/* ────────────────────────────────────────
+   DESKTOP NAV LINKS
+   Instrument Sans Bold 700  22px  #737171
+   top: 40px  height: 20px  (vertically centred in 100px bar)
+   Exact left positions from Figma:
+     About        286px
+     How it works? 437px
+     Benefits     664px
+     Locations    837px
+     Contact      1018px
+   Gaps are uneven in Figma — we replicate with flex gap
+──────────────────────────────────────── */
+.navbar__links {
+  display: flex;
+  align-items: center;
+
+  /* Gaps derived from Figma left positions:
+     286 → 437 = 151px gap  (minus widths)
+     437 → 664 = 227px gap
+     664 → 837 = 173px gap
+     837 → 1018= 181px gap
+     Average ~60–80px between centres → use space-between
+     within a constrained flex block */
+  gap: 48px;
+
+  flex: 1;
+  justify-content: center;    /* centre the link group between logo & CTA */
+}
+
+.navbar__link {
+  font-family: var(--nav-font);
+  font-size: var(--nav-link-size);     /* 22px */
+  font-weight: var(--nav-link-weight); /* 700 Bold */
+  line-height: var(--nav-link-lh);     /* 100% */
+  letter-spacing: 0;
+  color: var(--nav-link-color);        /* #737171 */
+
+  text-decoration: none;
+  white-space: nowrap;
+
+  /* Figma: width 206px height 20px top 40px */
+  display: inline-block;
+  height: 20px;
+  line-height: 20px;
+
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+/* underline hover effect */
+.navbar__link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--cta-bg);
+  border-radius: 2px;
+  transition: width 0.25s ease;
+}
+
+.navbar__link:hover {
+  color: var(--nav-link-hover);
+}
+
+.navbar__link:hover::after {
+  width: 100%;
+}
+
+/* ────────────────────────────────────────
+   CTA BUTTON  — "Call Now"
+   Group 1: width 251px  height 46px
+            top 27px  left 1232px
+   Blue filled pill with phone icon
+──────────────────────────────────────── */
+.navbar__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  width: var(--cta-w);          /* 251px */
+  height: var(--cta-h);         /* 46px  */
+  flex-shrink: 0;
+
+  background: var(--cta-bg);    /* blue */
+  color: var(--cta-color);      /* #fff */
+  border: none;
+  border-radius: var(--cta-radius); /* 8px */
+
+  font-family: var(--nav-font);
+  font-size: var(--cta-font-size);     /* 16px */
+  font-weight: var(--cta-font-weight); /* 700 */
+  line-height: 1;
+  letter-spacing: 0;
+  text-decoration: none;
+  cursor: pointer;
+
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
+}
+
+.navbar__cta:hover {
+  background: var(--cta-bg-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.4);
+}
+
+.navbar__cta:active {
+  transform: translateY(0);
+}
+
+.navbar__cta svg {
+  flex-shrink: 0;
+}
+
+/* ────────────────────────────────────────
+   HAMBURGER  (mobile only, hidden on desktop)
+──────────────────────────────────────── */
+.navbar__hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: var(--nav-link-color);
+  line-height: 0;
+}
+
+/* ────────────────────────────────────────
+   MOBILE DRAWER
+──────────────────────────────────────── */
+.navbar__mobile {
+  display: none;
+  flex-direction: column;
+  gap: 0;
+  background: var(--nav-bg);
+  border-top: 1px solid #f0f0f0;
+
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.navbar__mobile--open {
+  max-height: 500px;
+}
+
+.navbar__mobile-link {
+  display: block;
+  padding: 16px 24px;
+  font-family: var(--nav-font);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--nav-link-color);
+  text-decoration: none;
+  border-bottom: 1px solid #f5f5f5;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.navbar__mobile-link:hover {
+  background: #fafafa;
+  color: var(--nav-link-hover);
+}
+
+.navbar__cta--mobile {
+  margin: 16px 24px 24px;
+  width: calc(100% - 48px);
+  border-radius: 8px;
+}
+
+/* ────────────────────────────────────────
+   RESPONSIVE
+──────────────────────────────────────── */
+@media (max-width: 1100px) {
+  :root {
+    --nav-padding-x: 40px;
+    --nav-link-size: 18px;
+    --cta-w: 180px;
+  }
+
+  .navbar__links {
+    gap: 28px;
+  }
+}
+
+@media (max-width: 900px) {
+  /* hide desktop links & CTA */
+  .navbar__links,
+  .navbar__cta:not(.navbar__cta--mobile) {
+    display: none;
+  }
+
+  /* show hamburger */
+  .navbar__hamburger {
+    display: flex;
+  }
+
+  /* show mobile drawer */
+  .navbar__mobile {
+    display: flex;
+  }
+
+  :root {
+    --nav-padding-x: 24px;
+    --nav-h: 72px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --nav-h: 64px;
+    --logo-size: 44px;
+  }
+}
