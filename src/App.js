@@ -1,25 +1,15 @@
-import logo from './logo.svg';
-import './App.css';
+import Hero from "./components/Hero";
+import "./App.css";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      {/* Nav — "Home" label matching Figma */}
+      <nav className="app__nav">
+        <span className="app__nav-link app__nav-link--active">Home</span>
+      </nav>
+
+      <Hero />
     </div>
   );
 }
-
-export default App;
