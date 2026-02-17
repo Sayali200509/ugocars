@@ -1,0 +1,384 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+.benefits-container {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Header Section */
+.header {
+  padding: 80px 109px;
+  text-align: center;
+  background: rgba(103, 153, 254, 0.08);
+}
+
+.header h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+}
+
+.header h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: #5B5BD6;
+  margin-bottom: 12px;
+}
+
+.header p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 18px;
+  color: #615959;
+}
+
+/* Benefits Section */
+.benefits {
+  padding: 60px 109px;
+  background: #ffffff;
+}
+
+.benefits ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.benefits li {
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1a1a1a;
+  padding-left: 30px;
+  position: relative;
+}
+
+.benefits li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: #5B5BD6;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+/* Pricing Section */
+.pricing {
+  padding: 60px 109px;
+  background: #f9f9fb;
+}
+
+.pricing h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+  margin-top: 32px;
+}
+
+.pricing h3:first-child {
+  margin-top: 0;
+}
+
+.pricing p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #615959;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  max-width: 600px;
+}
+
+.pricing ul {
+  list-style: none;
+  margin-left: 0;
+}
+
+.pricing li {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #615959;
+  padding-left: 28px;
+  position: relative;
+  margin-bottom: 12px;
+}
+
+.pricing li::before {
+  content: '•';
+  position: absolute;
+  left: 8px;
+  color: #5B5BD6;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* Reviews Section */
+.reviews {
+  padding: 80px 109px;
+  background: #ffffff;
+}
+
+.reviews h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 44px;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.review-card {
+  background: #f9f9fb;
+  border-radius: 16px;
+  padding: 32px 24px 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(91, 91, 214, 0.15);
+}
+
+.review-quote-icon {
+  font-size: 48px;
+  color: #5B5BD6;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.review-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  color: #1a1a1a;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  flex: 1;
+}
+
+.review-footer {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #5B5BD6;
+  padding: 20px 24px;
+  margin: 0 -24px -32px -24px;
+  border-radius: 0 0 16px 16px;
+}
+
+.review-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+}
+
+.review-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.review-company {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.review-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* App Download Section */
+.app-download {
+  padding: 60px 109px;
+  background: linear-gradient(135deg, #5B5BD6 0%, #7B75D6 50%, #6B6AD6 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.app-download-content {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.app-image {
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+}
+
+.app-image img {
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.2));
+}
+
+.app-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  color: #ffffff;
+}
+
+.app-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+}
+
+.app-download h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.app-download p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  margin: 12px 0 28px 0;
+  max-width: 420px;
+}
+
+.store-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.app-store,
+.google-play {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  white-space: nowrap;
+}
+
+.app-store {
+  background: #ffffff;
+  color: #1a1a1a;
+}
+
+.app-store:hover {
+  background: #f5f5f5;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.google-play {
+  background: rgba(0, 0, 0, 0.15);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.google-play:hover {
+  background: rgba(0, 0, 0, 0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header,
+  .benefits,
+  .pricing,
+  .reviews,
+  .app-download {
+    padding: 40px 24px;
+  }
+
+  .header h1 {
+    font-size: 32px;
+  }
+
+  .header h2 {
+    font-size: 24px;
+  }
+
+  .benefits ul {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .reviews h2 {
+    font-size: 32px;
+  }
+
+  .reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .app-download-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .app-image {
+    width: 250px;
+  }
+
+  .app-download h2 {
+    font-size: 36px;
+  }
+
+  .store-buttons {
+    flex-direction: column;
+  }
+
+  .app-store,
+  .google-play {
+    flex: 1;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+}

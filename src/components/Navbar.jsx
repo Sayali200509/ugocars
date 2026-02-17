@@ -1,13 +1,14 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 /* ── Exact nav links from Figma layer panel ── */
 const NAV_LINKS = [
   { label: "About",        href: "#about"      },
   { label: "How it works?",href: "#how-it-works"},
-  { label: "Benefits",     href: "#benefits"   },
+  { label: "Benefits",     href: "/benefits"   },
   { label: "Locations",    href: "#locations"  },
-  { label: "Contact",      href: "#contact"    },
+  { label: "Contact",      href: "/contact"    },
 ];
 
 /* ── Phone icon (inline SVG — no dep needed) ── */
@@ -61,9 +62,15 @@ export default function Navbar() {
         {/* ── Desktop nav links ── */}
         <nav className="navbar__links" aria-label="Main navigation">
           {NAV_LINKS.map(({ label, href }) => (
-            <a key={label} href={href} className="navbar__link">
-              {label}
-            </a>
+            (label === "Contact" || label === "Benefits") ? (
+              <Link key={label} to={href} className="navbar__link">
+                {label}
+              </Link>
+            ) : (
+              <a key={label} href={href} className="navbar__link">
+                {label}
+              </a>
+            )
           ))}
         </nav>
 
@@ -87,14 +94,25 @@ export default function Navbar() {
       {/* ── Mobile drawer ── */}
       <div className={`navbar__mobile${menuOpen ? " navbar__mobile--open" : ""}`}>
         {NAV_LINKS.map(({ label, href }) => (
-          <a
-            key={label}
-            href={href}
-            className="navbar__mobile-link"
-            onClick={() => setMenuOpen(false)}
-          >
-            {label}
-          </a>
+          (label === "Contact" || label === "Benefits") ? (
+            <Link
+              key={label}
+              to={href}
+              className="navbar__mobile-link"
+              onClick={() => setMenuOpen(false)}
+            >
+              {label}
+            </Link>
+          ) : (
+            <a
+              key={label}
+              href={href}
+              className="navbar__mobile-link"
+              onClick={() => setMenuOpen(false)}
+            >
+              {label}
+            </a>
+          )
         ))}
         <a href="tel:+91" className="navbar__cta navbar__cta--mobile">
           <PhoneIcon />

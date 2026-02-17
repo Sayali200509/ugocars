@@ -1,0 +1,653 @@
+/* ============================================================
+   ContactUs.css — UGo Selfdrive — Contact Us Page
+   Strictly following frame_details__2_.pdf specs
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ─────────────────────────────────────────────────────
+   SECTION 1 — HERO: Contact Form + Car Images
+   Rectangle 20: W 1939px H 700px, fill #6799FE @ 44%
+───────────────────────────────────────────────────── */
+.cu-hero {
+  width: 100%;
+  min-height: 700px;
+  background: rgba(103, 153, 254, 0.44);   /* #6799FE @ 44% */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 109px;
+  gap: 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* White form card
+   Background: W 914px H 458px, Radius 24px, fill #FFFFFF */
+.cu-form-card {
+  width: 914px;
+  min-height: 458px;
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 32px 40px 36px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* "Contact Us" heading
+   Poppins SemiBold 600, 27px, lh 100%, #000, center */
+.cu-form-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 27px;
+  line-height: 100%;
+  color: #000000;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+/* Subtitle
+   Poppins Medium 500, 15px, lh 19px, #2C295F, center */
+.cu-form-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 19px;
+  color: #2C295F;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* Form 2-column grid */
+.cu-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 20px;
+  width: 100%;
+  margin-bottom: 14px;
+}
+
+.cu-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.cu-full {
+  width: 100%;
+}
+
+/* Labels */
+.cu-label {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: #2C295F;
+  letter-spacing: 0.12px;
+}
+
+/* Inputs — Border: W 867px-ish, H 43px, radius 50px, 1px #D3D3D3 */
+.cu-input {
+  height: 43px;
+  border-radius: 50px;
+  border: 1px solid #D3D3D3;
+  padding: 0 18px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #2C295F;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s;
+}
+.cu-input:focus { border-color: #6799FE; }
+.cu-input::placeholder { color: #aaa; font-size: 13px; }
+
+/* Phone field */
+.cu-phone-wrap {
+  display: flex;
+  align-items: center;
+  border: 1px solid #D3D3D3;
+  border-radius: 50px;
+  height: 43px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+.cu-phone-wrap:focus-within { border-color: #6799FE; }
+.cu-phone-code {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  color: #2C295F;
+  padding: 0 12px;
+  border-right: 1px solid #D3D3D3;
+  white-space: nowrap;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.cu-phone-input {
+  border: none !important;
+  border-radius: 0 !important;
+  height: 100% !important;
+  flex: 1;
+}
+.cu-phone-input:focus { border: none; }
+
+/* Message textarea */
+.cu-message-wrap {
+  width: 100%;
+}
+.cu-textarea {
+  width: 100%;
+  min-height: 60px;
+  border-radius: 20px;
+  border: 1px solid #D3D3D3;
+  padding: 12px 18px;
+  font-family: 'Roboto', 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.12px;
+  color: #2C295F;
+  resize: none;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.cu-textarea:focus { border-color: #6799FE; }
+.cu-textarea::placeholder { color: #aaa; font-weight: 400; }
+
+/* Submit button
+   Poppins Regular 400, 16px, lh 20px, #FFFFFF */
+.cu-submit-btn {
+  margin-top: 18px;
+  width: 440px;
+  height: 44px;
+  border-radius: 50px;
+  background: #2C295F;
+  border: none;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffffff;
+  transition: background 0.2s, transform 0.15s;
+  letter-spacing: 0;
+}
+.cu-submit-btn:hover { background: #3d3a7a; transform: translateY(-1px); }
+
+/* Car images — Group 43: W 868 H 492 */
+.cu-cars-img {
+  width: 520px;
+  height: 360px;
+  position: relative;
+  flex-shrink: 0;
+}
+.cu-car {
+  position: absolute;
+  object-fit: contain;
+}
+.cu-car-back {
+  width: 380px;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+}
+.cu-car-front {
+  width: 320px;
+  bottom: 20px;
+  left: 0;
+  z-index: 2;
+}
+
+/* ─────────────────────────────────────────────────────
+   SECTION 2 — FAQ
+   "How can we help you today?" — SansSerif Bold 700,
+   46.3px, lh 48px, #282C34, center
+───────────────────────────────────────────────────── */
+.cu-faq-section {
+  width: 100%;
+  padding: 60px 109px;
+  background: #ffffff;
+}
+
+.cu-faq-heading {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 46.3px;
+  line-height: 48px;
+  color: #282C34;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.cu-faq-list {
+  max-width: 741px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cu-faq-item {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 20px 24px;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+  background: #fff;
+}
+.cu-faq-item:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.07); }
+
+.cu-faq-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.cu-faq-q {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #282C34;
+}
+
+.cu-faq-chevron {
+  font-size: 14px;
+  color: #282C34;
+  transform: rotate(180deg);
+  display: inline-block;
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+.cu-faq-open .cu-faq-chevron {
+  transform: rotate(0deg);
+}
+
+.cu-faq-answer {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #555;
+  margin-top: 14px;
+}
+
+/* ─────────────────────────────────────────────────────
+   SECTION 3 — CONTACT INFO ROW
+   4 circles: ~90px diameter, fill periwinkle #6799FE
+───────────────────────────────────────────────────── */
+.cu-info-row {
+  width: 100%;
+  padding: 40px 109px;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+}
+
+.cu-info-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.cu-info-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #6799FE;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cu-info-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.cu-info-label {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  color: #282C34;
+}
+.cu-info-val {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: #555;
+}
+
+/* ─────────────────────────────────────────────────────
+   SECTION 4 — EMAIL SUBSCRIBE BANNER
+   Card: light periwinkle bg, rounded, two-column layout
+───────────────────────────────────────────────────── */
+.cu-subscribe-section {
+  width: 100%;
+  padding: 0 109px 60px 109px;
+  background: #ffffff;
+}
+
+.cu-subscribe-card {
+  background: rgba(103, 153, 254, 0.18);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  padding: 40px 60px;
+  gap: 60px;
+  min-height: 200px;
+}
+
+.cu-subscribe-illustration {
+  width: 280px;
+  height: 280px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.cu-subscribe-animation-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cu-subscribe-illustration img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  position: absolute;
+}
+
+/* Animated floating icons */
+.cu-float-icon {
+  position: absolute;
+  opacity: 0.85;
+}
+
+.cu-email-1 {
+  animation: float-up 3s ease-in-out infinite;
+  top: 20px;
+  left: 40px;
+  animation-delay: 0s;
+}
+
+.cu-email-2 {
+  animation: float-right 3.5s ease-in-out infinite;
+  top: 80px;
+  right: 30px;
+  animation-delay: 0.5s;
+}
+
+.cu-email-3 {
+  animation: float-down 4s ease-in-out infinite;
+  bottom: 30px;
+  left: 20px;
+  animation-delay: 1s;
+}
+
+.cu-email-4 {
+  animation: float-left 3.2s ease-in-out infinite;
+  top: 100px;
+  left: 10px;
+  animation-delay: 1.5s;
+}
+
+/* Animation keyframes */
+@keyframes float-up {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+    opacity: 1;
+  }
+}
+
+@keyframes float-right {
+  0%, 100% {
+    transform: translateX(0px) rotate(0deg);
+    opacity: 0.75;
+  }
+  50% {
+    transform: translateX(15px) rotate(-3deg);
+    opacity: 1;
+  }
+}
+
+@keyframes float-down {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(18px) rotate(-5deg);
+    opacity: 1;
+  }
+}
+
+@keyframes float-left {
+  0%, 100% {
+    transform: translateX(0px) rotate(0deg);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateX(-15px) rotate(4deg);
+    opacity: 1;
+  }
+}
+
+.cu-subscribe-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cu-subscribe-label {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #2C295F;
+}
+
+.cu-subscribe-heading {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 26px;
+  color: #2C295F;
+  line-height: 1.2;
+}
+
+.cu-subscribe-input-wrap {
+  display: flex;
+  align-items: center;
+  margin-top: 12px;
+  gap: 0;
+  background: #fff;
+  border-radius: 50px;
+  border: 1px solid #d0d0d0;
+  padding: 6px 6px 6px 16px;
+  width: 420px;
+}
+
+.cu-subscribe-mail-icon {
+  font-size: 16px;
+  color: #888;
+  margin-right: 8px;
+}
+
+.cu-subscribe-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #333;
+  background: transparent;
+}
+.cu-subscribe-input::placeholder { color: #bbb; }
+
+.cu-subscribe-btn {
+  height: 38px;
+  padding: 0 22px;
+  border-radius: 50px;
+  background: #2C295F;
+  border: none;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #fff;
+  transition: background 0.2s;
+}
+.cu-subscribe-btn:hover { background: #4B44FF; }
+
+/* ─────────────────────────────────────────────────────
+   FOOTER
+   Rectangle 17: light grey background
+   Font: Inter Medium 500, 18px, #000, opacity 70%
+───────────────────────────────────────────────────── */
+.cu-footer {
+  width: 100%;
+  background: #f0f0f4;
+  padding: 48px 109px 0 109px;
+}
+
+.cu-footer-top {
+  display: flex;
+  gap: 60px;
+  padding-bottom: 40px;
+}
+
+/* Col 1 — brand */
+.cu-footer-brand {
+  flex: 1.4;
+  min-width: 200px;
+}
+
+.cu-footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.cu-logo-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid rgba(103,153,254,0.4);
+  object-fit: contain;
+}
+
+.cu-logo-text {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #282C34;
+}
+
+.cu-footer-desc {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+  color: #555;
+  max-width: 260px;
+}
+
+/* Col headings */
+.cu-footer-col {
+  flex: 1;
+  min-width: 140px;
+}
+
+.cu-footer-col-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #282C34;
+  margin-bottom: 16px;
+}
+
+/* Links
+   Inter Medium 500, 18px, #000000, opacity 70% */
+.cu-footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cu-footer-links li,
+.cu-footer-links a,
+.cu-footer-links .cu-link-btn {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.70);
+  text-decoration: none;
+  transition: color 0.2s;
+  line-height: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.cu-footer-links a:hover,
+.cu-footer-links .cu-link-btn:hover { color: #4B44FF; }
+
+.cu-footer-contact li {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: rgba(0,0,0,0.70);
+}
+
+/* Bottom bar — Line 2 divider */
+.cu-footer-bottom {
+  border-top: 1px solid rgba(0,0,0,0.12);
+  padding: 18px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Copyright: "2026 UGoCars. All Rights Reserved." */
+.cu-copyright {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: rgba(0,0,0,0.55);
+}
+
+.cu-footer-legal {
+  display: flex;
+  gap: 32px;
+}
+.cu-footer-legal a,
+.cu-footer-legal .cu-link-btn {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: rgba(0,0,0,0.55);
+  text-decoration: none;
+  transition: color 0.2s;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.cu-footer-legal a:hover,
+.cu-footer-legal .cu-link-btn:hover { color: #4B44FF; }
