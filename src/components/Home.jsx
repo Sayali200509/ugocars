@@ -1,6 +1,7 @@
 import React from "react";
 import "./Home.css";
 import CarListingSection from "./Desktop 3";
+import HowItWorks from "./Desktop4";
 
 export default function HeroSection() {
   return (
@@ -81,6 +82,9 @@ export default function HeroSection() {
       
       {/* Car Listing Section */}
       <CarListingSection />
+      
+      {/* How It Works Section */}
+      <HowItWorks />
     </>
   );
 }
