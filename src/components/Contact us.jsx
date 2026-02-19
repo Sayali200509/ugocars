@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./Contact us.css";
-import Footer from "./Footer";
 
 /* ── SVG Icons for contact info row ── */
 const PinIcon = () => (
@@ -111,13 +110,13 @@ export default function ContactUs() {
           {/* Two overlapping car PNGs */}
           <img
             className="cu-car cu-car-back"
-            src="Contact_us_car1.png"
+            src="/images/contact us car1.png"
             alt="Car 1"
             onError={e => { e.target.style.display='none'; }}
           />
           <img
             className="cu-car cu-car-front"
-            src="Contact_us_car2.png"
+            src="/images/contact us car2.png"
             alt="Car 2"
             onError={e => { e.target.style.display='none'; }}
           />
@@ -218,7 +217,7 @@ export default function ContactUs() {
                 <path d="M20 14v10l7 0" stroke="#7B75D6" strokeWidth="2" fill="none" strokeLinecap="round"/>
               </svg>
             </div>
-            <img src="email-illustration.png" alt="Subscribe illustration"
+            <img src="/images/email-illustration.png" alt="Subscribe illustration"
               onError={e => { e.target.style.display='none'; }}/>
           </div>
           {/* Right content */}
@@ -233,8 +232,6 @@ export default function ContactUs() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </>
   );
 }

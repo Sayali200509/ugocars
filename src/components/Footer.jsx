@@ -8,7 +8,7 @@ const Footer = () => {
         {/* Logo & Description */}
         <div className="footer-section company-info">
           <div className="logo-section">
-            <img src="/logo.png" alt="UGoCar Logo" className="footer-logo" />
+            <img src="/images/logo.png" alt="UGoCar Logo" className="footer-logo" />
           </div>
           <p className="company-description">
             Premium car rental service delivering luxury, comfort, and reliability since 2010.

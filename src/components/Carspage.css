@@ -1,0 +1,763 @@
+/* ============================================================
+   CarsPage.css — Pixel-perfect match to Figma
+   Page bg: #FFFFFF  |  Sidebar width: ~145px
+   Primary: #6799FE  |  Font: Work Sans
+   ============================================================ */
+
+   @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap');
+
+   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+   
+   .cars-page {
+     font-family: 'Work Sans', sans-serif;
+     background: #FFFFFF;
+     color: #111827;
+     min-height: 100vh;
+   }
+   
+   /* ============================================================
+      TOP SECONDARY NAVBAR
+      — hamburger | logo  ←→  location + dates  ←→  avatar + buttons
+      ============================================================ */
+   .cars-topbar {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     height: 56px;
+     padding: 0 24px;
+     background: #FFFFFF;
+     border-bottom: 1px solid #F3F4F6;
+     position: sticky;
+     top: 0;
+     z-index: 100;
+   }
+   
+   /* Left — hamburger + logo */
+   .cars-topbar__left {
+     display: flex;
+     align-items: center;
+     gap: 12px;
+     min-width: 160px;
+   }
+   .cars-topbar__hamburger {
+     display: flex;
+     flex-direction: column;
+     gap: 4px;
+     cursor: pointer;
+   }
+   .cars-topbar__hamburger span {
+     display: block;
+     width: 20px;
+     height: 2px;
+     background: #111827;
+     border-radius: 2px;
+   }
+   /* Logo placeholder: 77×61 from Figma */
+   .cars-topbar__logo-wrap {
+     width: 77px;
+     height: 44px;
+     display: flex;
+     align-items: center;
+     overflow: hidden;
+   }
+   .cars-topbar__logo {
+     width: 100%;
+     height: 100%;
+     object-fit: contain;
+   }
+   
+   /* Center — location + dates */
+   .cars-topbar__center {
+     display: flex;
+     align-items: center;
+     gap: 12px;
+     flex: 1;
+     justify-content: center;
+   }
+   .cars-topbar__loc-pin { font-size: 14px; }
+   .cars-topbar__loc-text {
+     font-size: 13px;
+     font-weight: 500;
+     color: #374151;
+   }
+   .cars-topbar__dates {
+     display: flex;
+     align-items: center;
+     gap: 10px;
+     margin-left: 16px;
+   }
+   .cars-topbar__date-block {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+   }
+   .cars-topbar__date-d {
+     font-size: 13px;
+     font-weight: 700;
+     color: #111827;
+     line-height: 1;
+   }
+   .cars-topbar__date-t {
+     font-size: 11px;
+     color: #6B7280;
+     line-height: 1;
+     margin-top: 2px;
+   }
+   .cars-topbar__date-line {
+     width: 1px;
+     height: 28px;
+     background: #E5E7EB;
+   }
+   
+   /* Right — avatar + buttons */
+   .cars-topbar__right {
+     display: flex;
+     align-items: center;
+     gap: 12px;
+     min-width: 220px;
+     justify-content: flex-end;
+   }
+   .cars-topbar__avatar {
+     width: 36px;
+     height: 36px;
+     border-radius: 50%;
+     background: #EEF3FF;
+     overflow: hidden;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+   }
+   .cars-topbar__avatar img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+   }
+   .cars-topbar__become {
+     font-size: 13px;
+     font-weight: 500;
+     color: #374151;
+     background: none;
+     border: none;
+     cursor: pointer;
+     font-family: 'Work Sans', sans-serif;
+   }
+   .cars-topbar__login {
+     font-size: 13px;
+     font-weight: 600;
+     color: #6799FE;
+     background: none;
+     border: 1.5px solid #6799FE;
+     border-radius: 8px;
+     padding: 6px 14px;
+     cursor: pointer;
+     font-family: 'Work Sans', sans-serif;
+   }
+   
+   /* ============================================================
+      PAGE LAYOUT — sidebar + main
+      ============================================================ */
+   .cars-layout {
+     display: flex;
+     align-items: flex-start;
+     width: 100%;
+     min-height: calc(100vh - 56px);
+   }
+   
+   /* ============================================================
+      SIDEBAR — sticky, ~145px wide from Figma
+      ============================================================ */
+   .cars-sidebar {
+     width: 145px;
+     min-width: 145px;
+     background: #FFFFFF;
+     border-right: 1px solid #F3F4F6;
+     padding: 16px 0;
+     position: sticky;
+     top: 56px;
+     height: calc(100vh - 56px);
+     overflow-y: auto;
+     scrollbar-width: thin;
+   }
+   .cars-sidebar::-webkit-scrollbar { width: 3px; }
+   .cars-sidebar::-webkit-scrollbar-thumb { background: #E5E7EB; border-radius: 99px; }
+   
+   .cars-sidebar__title {
+     font-size: 14px;
+     font-weight: 700;
+     color: #111827;
+     padding: 0 12px 12px;
+   }
+   
+   /* Filter section accordion */
+   .fsec {
+     border-top: 1px solid #F3F4F6;
+   }
+   .fsec__hdr {
+     width: 100%;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding: 10px 12px;
+     background: none;
+     border: none;
+     cursor: pointer;
+     font-family: 'Work Sans', sans-serif;
+   }
+   .fsec__title {
+     font-size: 12px;
+     font-weight: 700;
+     color: #111827;
+     text-align: left;
+   }
+   .fsec__arrow {
+     font-size: 10px;
+     color: #6B7280;
+     flex-shrink: 0;
+   }
+   .fsec__body {
+     padding: 4px 12px 12px;
+     display: flex;
+     flex-direction: column;
+     gap: 6px;
+   }
+   
+   /* Checkbox */
+   .fchk {
+     display: flex;
+     align-items: center;
+     gap: 7px;
+     cursor: pointer;
+     font-size: 11px;
+     color: #374151;
+     line-height: 1.4;
+   }
+   .fchk input[type="checkbox"] {
+     width: 13px;
+     height: 13px;
+     accent-color: #6799FE;
+     flex-shrink: 0;
+     border-radius: 2px;
+   }
+   
+   /* Radio */
+   .fradio {
+     display: flex;
+     align-items: center;
+     gap: 7px;
+     cursor: pointer;
+     font-size: 11px;
+     color: #374151;
+   }
+   .fradio input[type="radio"] {
+     width: 13px;
+     height: 13px;
+     accent-color: #6799FE;
+     flex-shrink: 0;
+   }
+   
+   /* Subhead labels inside Car Details */
+   .fsubhead {
+     font-size: 10px;
+     font-weight: 700;
+     color: #6799FE;
+     text-transform: uppercase;
+     letter-spacing: 0.3px;
+     margin-top: 6px;
+     margin-bottom: 2px;
+   }
+   
+   /* Hint text */
+   .fhint {
+     font-size: 10px;
+     color: #9CA3AF;
+     display: flex;
+     align-items: center;
+     gap: 4px;
+     line-height: 1.4;
+   }
+   .fhint-icon {
+     width: 12px;
+     height: 12px;
+     object-fit: contain;
+     flex-shrink: 0;
+   }
+   
+   /* Range slider — shared */
+   .crange {
+     -webkit-appearance: none;
+     width: 100%;
+     height: 3px;
+     border-radius: 3px;
+     background: linear-gradient(to right, #6799FE 0%, #6799FE var(--val,50%), #E5E7EB var(--val,50%));
+     outline: none;
+     cursor: pointer;
+   }
+   .crange::-webkit-slider-thumb {
+     -webkit-appearance: none;
+     width: 16px;
+     height: 16px;
+     border-radius: 50%;
+     background: #6799FE;
+     border: 2px solid #FFFFFF;
+     box-shadow: 0 1px 4px rgba(103,153,254,0.4);
+     cursor: pointer;
+   }
+   .crange::-moz-range-thumb {
+     width: 16px;
+     height: 16px;
+     border-radius: 50%;
+     background: #6799FE;
+     border: 2px solid #FFFFFF;
+     cursor: pointer;
+   }
+   
+   /* Range outer wrapper */
+   .range-outer {
+     display: flex;
+     flex-direction: column;
+     gap: 4px;
+   }
+   .range-bubble-wrap {
+     display: flex;
+     justify-content: flex-end;
+   }
+   .range-bubble {
+     background: #6799FE;
+     color: #fff;
+     font-size: 10px;
+     font-weight: 700;
+     padding: 3px 7px;
+     border-radius: 6px;
+     white-space: nowrap;
+   }
+   .range-lbls {
+     display: flex;
+     justify-content: space-between;
+     font-size: 10px;
+     color: #9CA3AF;
+     margin-top: 2px;
+   }
+   
+   /* Dual range — price */
+   .dual-range-outer { display: flex; flex-direction: column; gap: 6px; }
+   .price-bubbles-row { display: flex; justify-content: space-between; }
+   .price-bubble {
+     background: #6799FE;
+     color: #fff;
+     font-size: 10px;
+     font-weight: 700;
+     padding: 3px 6px;
+     border-radius: 6px;
+     white-space: nowrap;
+   }
+   .dual-range-track { position: relative; height: 16px; }
+   .crange--ol {
+     position: absolute;
+     top: 50%;
+     transform: translateY(-50%);
+     pointer-events: auto;
+   }
+   
+   /* ============================================================
+      MAIN LISTING AREA
+      ============================================================ */
+   .cars-main {
+     flex: 1;
+     padding: 16px 20px 40px;
+     min-width: 0;
+   }
+   
+   /* Search + Sort row */
+   .cars-search-row {
+     display: flex;
+     align-items: center;
+     gap: 12px;
+     margin-bottom: 12px;
+   }
+   .cars-search-box {
+     flex: 1;
+     position: relative;
+     border: 1px solid #E5E7EB;
+     border-radius: 8px;
+     overflow: hidden;
+     background: #FAFAFA;
+   }
+   .cars-search-input {
+     width: 100%;
+     padding: 10px 40px 10px 14px;
+     font-size: 13px;
+     font-family: 'Work Sans', sans-serif;
+     color: #374151;
+     background: transparent;
+     border: none;
+     outline: none;
+   }
+   .cars-search-input::placeholder { color: #9CA3AF; }
+   .cars-search-ico {
+     position: absolute;
+     right: 12px;
+     top: 50%;
+     transform: translateY(-50%);
+     font-size: 14px;
+     color: #9CA3AF;
+   }
+   
+   .cars-sort-box {
+     position: relative;
+     min-width: 140px;
+     border: 1px solid #E5E7EB;
+     border-radius: 8px;
+     background: #FAFAFA;
+     display: flex;
+     align-items: center;
+   }
+   .cars-sort-sel {
+     width: 100%;
+     padding: 10px 32px 10px 12px;
+     font-size: 13px;
+     font-family: 'Work Sans', sans-serif;
+     color: #374151;
+     background: transparent;
+     border: none;
+     outline: none;
+     appearance: none;
+     cursor: pointer;
+   }
+   .cars-sort-arrow {
+     position: absolute;
+     right: 10px;
+     font-size: 11px;
+     color: #6B7280;
+     pointer-events: none;
+   }
+   
+   /* Quick filter chips */
+   .cars-chips {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 8px;
+     margin-bottom: 10px;
+   }
+   .cars-chip {
+     display: inline-flex;
+     align-items: center;
+     gap: 5px;
+     padding: 5px 12px;
+     border-radius: 99px;
+     border: 1px solid #E5E7EB;
+     background: #FFFFFF;
+     font-size: 12px;
+     font-weight: 500;
+     color: #374151;
+     cursor: pointer;
+     font-family: 'Work Sans', sans-serif;
+     transition: all 0.15s;
+     white-space: nowrap;
+   }
+   .cars-chip:hover { border-color: #6799FE; color: #6799FE; }
+   .cars-chip--on {
+     background: #EEF3FF;
+     border-color: #6799FE;
+     color: #6799FE;
+     font-weight: 600;
+   }
+   .cars-chip-icon { font-size: 13px; }
+   
+   .cars-count {
+     font-size: 12px;
+     color: #6B7280;
+     margin-bottom: 14px;
+   }
+   
+   /* ============================================================
+      CAR GRID — 4 columns matching Figma
+      ============================================================ */
+   .cars-grid {
+     display: grid;
+     grid-template-columns: repeat(4, 1fr);
+     gap: 16px;
+   }
+   
+   /* ============================================================
+      CAR CARD
+      Figma: white bg, border-radius ~12px, shadow
+      Image area fills top, info area at bottom
+      ============================================================ */
+   .ccard {
+     background: #FFFFFF;
+     border-radius: 12px;
+     overflow: hidden;
+     box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+     cursor: pointer;
+     transition: box-shadow 0.2s, transform 0.2s;
+   }
+   .ccard:hover {
+     box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+     transform: translateY(-2px);
+   }
+   
+   /* Image area */
+   .ccard__img-area {
+     position: relative;
+     width: 100%;
+     aspect-ratio: 4/3;
+     background: #E5E7EB;  /* grey placeholder bg */
+     overflow: hidden;
+   }
+   .ccard__img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     display: block;
+   }
+   
+   /* Heart button — top right */
+   .ccard__heart {
+     position: absolute;
+     top: 10px;
+     right: 10px;
+     width: 28px;
+     height: 28px;
+     border-radius: 50%;
+     background: rgba(255,255,255,0.9);
+     border: none;
+     cursor: pointer;
+     font-size: 14px;
+     color: #9CA3AF;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     z-index: 3;
+     transition: color 0.15s;
+   }
+   .ccard__heart--on { color: #EF4444; }
+   
+   /* Professional Host badge — top left */
+   .ccard__pro-tag {
+     position: absolute;
+     top: 10px;
+     left: 10px;
+     display: flex;
+     align-items: center;
+     gap: 5px;
+     background: rgba(255,255,255,0.92);
+     border-radius: 6px;
+     padding: 4px 8px;
+     font-size: 10px;
+     font-weight: 600;
+     color: #374151;
+     z-index: 3;
+   }
+   .ccard__pro-icon {
+     width: 14px;
+     height: 14px;
+     object-fit: contain;
+   }
+   
+   /* Carousel dots */
+   .ccard__dots {
+     position: absolute;
+     bottom: 52px;   /* sits above the overlay */
+     left: 50%;
+     transform: translateX(-50%);
+     display: flex;
+     gap: 4px;
+     z-index: 3;
+   }
+   .ccard__dot {
+     width: 6px;
+     height: 6px;
+     border-radius: 50%;
+     background: rgba(255,255,255,0.5);
+   }
+   .ccard__dot--active { background: #FFFFFF; }
+   
+   /* Bottom gradient overlay */
+   .ccard__overlay {
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 100%);
+     padding: 28px 10px 8px;
+     display: flex;
+     align-items: flex-end;
+     justify-content: space-between;
+     z-index: 2;
+   }
+   .ccard__overlay-left { flex: 1; }
+   .ccard__car-name {
+     font-size: 13px;
+     font-weight: 700;
+     color: #FFFFFF;
+     line-height: 1.2;
+   }
+   .ccard__car-specs {
+     font-size: 10px;
+     color: rgba(255,255,255,0.85);
+     margin-top: 2px;
+   }
+   
+   /* Rating pill (right side of overlay) */
+   .ccard__overlay-right {
+     display: flex;
+     flex-direction: column;
+     align-items: flex-end;
+     gap: 2px;
+     flex-shrink: 0;
+     margin-left: 6px;
+   }
+   .ccard__rating-pill {
+     display: inline-flex;
+     align-items: center;
+     gap: 3px;
+     padding: 3px 7px;
+     border-radius: 6px;
+     font-size: 10px;
+     font-weight: 700;
+     color: #FFFFFF;
+     white-space: nowrap;
+   }
+   .ccard__star { font-size: 10px; }
+   .ccard__badge-label {
+     font-size: 10px;
+     font-weight: 700;
+     text-align: right;
+   }
+   
+   /* Info section below image */
+   .ccard__info {
+     padding: 10px 12px 12px;
+     display: flex;
+     flex-direction: column;
+     gap: 6px;
+   }
+   .ccard__info-row {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+   }
+   .ccard__delivery {
+     font-size: 11px;
+     color: #6B7280;
+   }
+   .ccard__price-hr {
+     font-size: 14px;
+     font-weight: 700;
+     color: #111827;
+   }
+   .ccard__distance {
+     font-size: 11px;
+     color: #374151;
+     display: flex;
+     align-items: center;
+     gap: 4px;
+   }
+   .ccard__price-day {
+     font-size: 10px;
+     color: #6799FE;
+     text-decoration: underline;
+     cursor: pointer;
+   }
+   
+   /* ============================================================
+      FOOTER
+      ============================================================ */
+   .cars-footer {
+     background: #F9FAFB;
+     border-top: 1px solid #E5E7EB;
+     padding-top: 48px;
+   }
+   .cars-footer-inner {
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 0 48px;
+     display: flex;
+     gap: 48px;
+     margin-bottom: 40px;
+   }
+   .cars-footer-brand {
+     display: flex;
+     align-items: flex-start;
+     gap: 12px;
+     min-width: 240px;
+   }
+   .cars-footer-logo-wrap {
+     width: 44px;
+     height: 44px;
+     border-radius: 50%;
+     background: #EEF3FF;
+     overflow: hidden;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-shrink: 0;
+   }
+   .cars-footer-logo-wrap img {
+     width: 36px;
+     height: 36px;
+     object-fit: contain;
+   }
+   .cars-footer-bname {
+     font-size: 16px;
+     font-weight: 700;
+     color: #111827;
+     margin-bottom: 6px;
+   }
+   .cars-footer-tagline {
+     font-size: 12px;
+     color: #6B7280;
+     line-height: 1.6;
+     max-width: 200px;
+   }
+   .cars-footer-cols {
+     display: flex;
+     gap: 48px;
+     flex: 1;
+   }
+   .cars-footer-col h4 {
+     font-size: 13px;
+     font-weight: 700;
+     color: #111827;
+     margin-bottom: 14px;
+   }
+   .cars-footer-col a,
+   .cars-footer-col p {
+     display: block;
+     font-size: 12px;
+     color: #6B7280;
+     text-decoration: none;
+     margin-bottom: 8px;
+     line-height: 1.4;
+   }
+   .cars-footer-col a:hover { color: #6799FE; }
+   
+   .cars-footer-bottom {
+     border-top: 1px solid #E5E7EB;
+     padding: 16px 48px;
+     max-width: 1200px;
+     margin: 0 auto;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     font-size: 12px;
+     color: #6B7280;
+   }
+   .cars-footer-links { display: flex; gap: 28px; }
+   .cars-footer-links a { color: #6B7280; text-decoration: none; }
+   .cars-footer-links a:hover { color: #6799FE; }
+   
+   /* ============================================================
+      RESPONSIVE
+      ============================================================ */
+   @media (max-width: 1200px) {
+     .cars-grid { grid-template-columns: repeat(3, 1fr); }
+   }
+   @media (max-width: 900px) {
+     .cars-grid { grid-template-columns: repeat(2, 1fr); }
+     .cars-sidebar { display: none; }
+   }
+   @media (max-width: 560px) {
+     .cars-grid { grid-template-columns: 1fr; }
+     .cars-topbar__center { display: none; }
+   }

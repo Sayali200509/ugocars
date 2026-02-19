@@ -1,0 +1,205 @@
+/* ============================================================
+   CarListingSection.css
+   Canvas: 1440 × 789 px
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Section wrapper ── */
+.listing {
+  position: relative;
+  width: 1440px;
+  height: 789px;
+  background: linear-gradient(160deg, #eef2ff 0%, #f8f9ff 50%, #e8eeff 100%);
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 54px;
+}
+
+/* ── "PREMIUM CAR RENTAL" label ── */
+.listing__label {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: #6799FE;
+  margin-bottom: 8px;
+}
+
+/* ── "Choose Your Perfect Ride" heading ── */
+.listing__title {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 56px;
+  line-height: 1.15;
+  letter-spacing: 0;
+  color: #111111;
+  margin-bottom: 16px;
+}
+
+.listing__title--blue {
+  color: #6799FE;
+}
+
+/* ── Subtitle ── */
+.listing__subtitle {
+  max-width: 860px;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.5;
+  color: #444444;
+  margin-bottom: 44px;
+}
+
+/* ── Cards grid ── */
+/* 3 cards of 506×380, evenly spaced inside 1440px */
+.listing__grid {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ── Card ── */
+.car-card {
+  width: 430px;
+  flex-shrink: 0;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.09);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Image wrapper — full card width, no padding ── */
+.car-card__img-wrap {
+  position: relative;
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+}
+
+.car-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ── Category badge ── */
+.car-card__badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(103, 153, 254, 0.88);
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  z-index: 2;
+  backdrop-filter: blur(4px);
+}
+
+/* ── Info area ── */
+.car-card__info {
+  padding: 20px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+  border-top: 1px solid #f0f0f0;
+}
+
+/* ── Car name ── */
+.car-card__name {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  color: #111111;
+  line-height: 1.2;
+}
+
+/* ── Specs row ── */
+.car-card__specs {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.car-card__spec {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #555555;
+}
+
+/* ── Footer: price + button ── */
+.car-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2px;
+}
+
+.car-card__price {
+  font-family: 'Inter', sans-serif;
+  color: #111111;
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+}
+
+.car-card__price strong {
+  font-weight: 800;
+  font-size: 24px;
+}
+
+.car-card__per {
+  font-weight: 400;
+  font-size: 15px;
+  color: #666666;
+}
+
+/* ── Rent Now button ── */
+.car-card__btn {
+  background: #6799FE;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 28px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.car-card__btn:hover {
+  background: #4f82f0;
+}
