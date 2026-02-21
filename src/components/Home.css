@@ -1,8 +1,3 @@
-/* ============================================================
-   HeroSection.css
-   Canvas: 1440 × 866 px
-   ============================================================ */
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;800&display=swap');
 
 *,
@@ -16,7 +11,8 @@
 /* ── Section ── */
 .hero {
   position: relative;
-  width: 1440px;
+  width: 100%;
+  max-width: 1440px;
   height: 866px;
   font-family: 'Inter', sans-serif;
   overflow: hidden;
@@ -24,11 +20,10 @@
   background-position: center;
   background-repeat: no-repeat;
   opacity: 1;
+  margin: 0 auto;
 }
 
-/* ── Gradient overlay per spec:
-   linear-gradient(90deg, rgba(0,0,0,0.7) 99.99%, rgba(102,102,102,0) 100%)
-── */
+/* ── Overlay: dark left fade ── */
 .hero__overlay {
   position: absolute;
   inset: 0;
@@ -36,15 +31,15 @@
   z-index: 0;
 }
 
-/* ── Content: positioned from left: 78px per spec ── */
+/* ── Content container ── */
 .hero__content {
   position: absolute;
   inset: 0;
   z-index: 1;
 }
 
-/* ── "PREMIUM CAR RENTAL" label ── */
-/* top: 76px, left: 78px, Inter 500, 28px */
+/* ── "PREMIUM CAR RENTAL" label ── 
+   top: 76px, left: 78px, Inter 500, 28px, color: #6799FE */
 .hero__label {
   position: absolute;
   top: 76px;
@@ -57,8 +52,8 @@
   color: #6799FE;
 }
 
-/* ── Main heading ── */
-/* top: 140px, left: 78px, width: 903px, height: 277px
+/* ── Main heading ── 
+   top: 140px, left: 78px, width: 903px, height: 277px
    Inter 800, 105px, line-height: 115px */
 .hero__title {
   position: absolute;
@@ -72,6 +67,7 @@
   line-height: 115px;
   letter-spacing: 0;
   color: #ffffff;
+  white-space: nowrap;
 }
 
 .hero__title--blue {
@@ -84,7 +80,6 @@
   top: 385px;
   left: 81px;
   width: 937px;
-  height: 153px;
   font-family: 'Inter', sans-serif;
   font-weight: 400;
   font-size: 20px;
@@ -92,41 +87,45 @@
   color: #ffffff;
 }
 
-/* ── Search box ── */
-/* top: 528px, left: 82px, width: 978px, height: 210px
-   background: rgba(0,0,0,0.45), border: 1px solid #737171, border-radius: 10px */
+/* ── Search box ── 
+   Spec: top: 528px, left: 82px, width: 978px, height: 210px
+   background: #00000073, border: 1px solid #737171, border-radius: 10px */
 .search-box {
   position: absolute;
   top: 528px;
   left: 82px;
   width: 978px;
   height: 210px;
-  background: rgba(0, 0, 0, 0.45);
+  background: #00000073;
   border: 1px solid #737171;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 18px;
-  padding: 24px 28px;
+  padding: 18px 18px;
 }
 
 /* ── Fields row ── */
 .search-box__fields {
   display: flex;
-  gap: 16px;
+  gap: 17px;
 }
 
-/* ── Individual field ── */
+/* ── Individual search field ── 
+   Spec: width: 294px, height: 80px, border-radius: 10px, background: #3A38389E */
 .search-field {
   display: flex;
   align-items: center;
   gap: 14px;
-  flex: 1;
-  background: rgba(55, 55, 55, 0.8);
-  border-radius: 8px;
-  padding: 14px 18px;
+  width: 294px;
+  min-width: 294px;
+  height: 80px;
+  background: #3A38389E;
+  border-radius: 10px;
+  padding: 0 18px;
   cursor: pointer;
+  flex-shrink: 0;
 }
 
 .search-field__icon {
@@ -151,25 +150,191 @@
   margin-top: 3px;
 }
 
-/* ── Search button ── */
+/* ── Search button ── 
+   Spec: width: 406px, height: 70px, background: #6799FE, border-radius: 10px */
 .search-box__btn {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
-  width: 300px;
-  height: 54px;
+  width: 406px;
+  height: 70px;
   background: #6799FE;
   border: none;
-  border-radius: 8px;
-  padding: 0 24px;
+  border-radius: 10px;
+  padding: 0 28px;
   cursor: pointer;
   font-family: 'Inter', sans-serif;
   font-weight: 700;
   font-size: 16px;
   color: #ffffff;
   transition: background 0.2s ease;
+  flex-shrink: 0;
+  white-space: nowrap;        /* ← prevents "Cars" from dropping to next line */
 }
 
 .search-box__btn:hover {
   background: #4f82f0;
+}
+
+.search-box__btn:active {
+  transform: scale(0.98);
+}
+
+/* ── Arrow image inside button — keep it small ── */
+.search-box__btn-arrow {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: brightness(0) invert(1); /* forces arrow to white regardless of source color */
+}
+
+/* ============================================================
+   SIBLING SECTIONS FIX
+   Ensures CarListingSection and all sections after hero
+   are NOT constrained by hero's max-width: 1440px centering
+   ============================================================ */
+.hero ~ * {
+  width: 100% !important;
+  max-width: none !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* ============================================================
+   FOOTER STYLES
+   ============================================================ */
+.footer {
+  background: #111827;
+  color: #ffffff;
+  padding: 60px 0 20px;
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 0 20px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-heading {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #9ca3af;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+}
+
+.company-info {
+  max-width: 300px;
+}
+
+.logo-section {
+  margin-bottom: 20px;
+}
+
+.footer-logo {
+  height: 40px;
+}
+
+.company-description {
+  color: #9ca3af;
+  line-height: 1.6;
+  font-size: 14px;
+}
+
+.contact-info {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-item {
+  margin-bottom: 10px;
+  color: #9ca3af;
+}
+
+.contact-label {
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+.contact-link {
+  color: #6799FE;
+  text-decoration: none;
+}
+
+.contact-link:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  border-top: 1px solid #374151;
+  margin-top: 40px;
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 40px auto 0;
+  padding: 20px 20px 0;
+}
+
+.copyright {
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.footer-legal {
+  display: flex;
+  gap: 20px;
+}
+
+.legal-link {
+  color: #9ca3af;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.legal-link:hover {
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
 }

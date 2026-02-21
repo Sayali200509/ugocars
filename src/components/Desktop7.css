@@ -1,0 +1,450 @@
+/* ═══════════════════════════════════════════════════════════
+   Desktop7.css  —  Reviews + Banner page
+   Font: Inter (loaded via Google Fonts in index.html / App.css)
+═══════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ── Reset (scoped) ─────────────────────────────────────── */
+.d7-page *,
+.d7-page *::before,
+.d7-page *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ── Page wrapper ───────────────────────────────────────── */
+.d7-page {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  font-family: 'Inter', sans-serif;
+  background: #ffffff;
+  overflow-x: hidden;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   REVIEWS SECTION
+═══════════════════════════════════════════════════════════ */
+
+.d7-reviews-section {
+  width: 100%;
+  max-width: 100%;
+  min-height: 935px;
+  margin: 0;
+  background: #f0f4ff;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px 50px 60px;
+}
+
+/* ── Section badge pill ─────────────────────────────────── */
+.d7-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  border: 1px solid #dde4f0;
+  border-radius: 999px;
+  padding: 6px 18px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #4A90D9;
+  margin-bottom: 20px;
+  /* subtle shadow so the pill lifts off the blue-grey bg */
+  box-shadow: 0 1px 4px rgba(74, 144, 217, 0.08);
+}
+
+/* ── Section heading ────────────────────────────────────── */
+.d7-title {
+  font-size: 46px;
+  font-weight: 800;
+  color: #111111;
+  text-align: center;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+  margin-bottom: 12px;
+}
+
+.d7-title span {
+  color: #4A90D9;              /* accent colour on "Customers Say" */
+}
+
+/* ── Section subtitle ───────────────────────────────────── */
+.d7-subtitle {
+  font-size: 16px;
+  font-weight: 400;
+  color: #555555;
+  text-align: center;
+  margin-bottom: 36px;
+  max-width: 560px;
+  line-height: 1.5;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   REVIEW CARDS GRID
+═══════════════════════════════════════════════════════════ */
+
+.d7-review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+/* ── Individual review card ─────────────────────────────── */
+.d7-review-card {
+  width: 100%;
+  min-height: 365px;
+  background: #ffffff;
+  border: 2px solid #E1E7EF;
+  border-radius: 12px;
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+/* Decorative circular overlay — top-right of every review card */
+.d7-review-card::before {
+  content: "";
+  position: absolute;
+  width: 128px;
+  height: 128px;
+  top: -62px;
+  right: 0;               /* mirrors the Figma left:358px on a ~424px card */
+  border-radius: 9999px;
+  background: rgba(60, 131, 246, 0.05);  /* #3C83F6 at 5% */
+  pointer-events: none;
+}
+
+.d7-review-card:hover {
+  box-shadow: 0 6px 20px rgba(74, 144, 217, 0.12);
+  transform: translateY(-2px);
+}
+
+/* ── Badge inside card ──────────────────────────────────── */
+.d7-review-top {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.d7-review-badge {
+  background: #e8f1fd;
+  color: #4A90D9;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 999px;
+  letter-spacing: 0.2px;
+}
+
+/* ── Star icons (image-based, falls back to SVG) ────────── */
+.d7-stars {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-bottom: 8px;
+}
+
+.d7-stars--sm { }          /* inside review card: default size */
+
+.d7-stars--xs {            /* inside stat card: slightly smaller */
+  gap: 2px;
+  margin-top: 4px;
+}
+
+/* The <img> star — size controlled here so it's easy to swap */
+.d7-star-img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.d7-stars--xs .d7-star-img {
+  width: 17px;
+  height: 17px;
+}
+
+/* Inline SVG fallback star */
+.d7-star-svg {
+  width: 20px;
+  height: 20px;
+}
+
+.d7-stars--xs .d7-star-svg {
+  width: 17px;
+  height: 17px;
+}
+
+/* ── Opening quote icon ─────────────────────────────────── */
+.d7-quote-icon {
+  margin-bottom: 6px;
+  line-height: 1;
+}
+
+/* Image-based quote icon */
+.d7-quote-img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  opacity: 0.55;             /* softens the heavy quote mark */
+}
+
+/* SVG fallback */
+.d7-quote-svg {
+  width: 36px;
+  height: 36px;
+}
+
+/* ── Review body text ───────────────────────────────────── */
+.d7-review-text {
+  font-size: 14px;
+  color: #444444;
+  line-height: 1.65;
+  font-style: italic;
+  flex: 1;                   /* fills remaining card height */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;     /* truncate gracefully if text is long */
+  -webkit-box-orient: vertical;
+}
+
+/* ── Reviewer row (name + avatar) ───────────────────────── */
+.d7-reviewer {
+  width: 100%;
+  height: 65px;
+  border-top: 1px solid #E1E7EF;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 12px;
+  flex-shrink: 0;
+}
+
+/* Circular avatar with initial */
+.d7-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #dbeeff;
+  color: #4A90D9;
+  font-size: 15px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.d7-reviewer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.d7-reviewer-info strong {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111111;
+}
+
+/* Location row: red pin emoji + city name */
+.d7-reviewer-location {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #888888;
+}
+
+.d7-location-pin {
+  font-size: 13px;
+  line-height: 1;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   STAT CARDS GRID
+═══════════════════════════════════════════════════════════ */
+
+.d7-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 36px;
+  width: 100%;
+}
+
+/* ── Individual stat card ───────────────────────────────── */
+.d7-stat-card {
+  width: 100%;
+  height: 148px;
+  background: #ffffff;
+  border: 1px solid #E1E7EF;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: box-shadow 0.2s ease;
+}
+
+.d7-stat-card:hover {
+  box-shadow: 0 4px 14px rgba(74, 144, 217, 0.1);
+}
+
+.d7-stat-value {
+  font-size: 36px;
+  font-weight: 800;
+  color: #4A90D9;
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
+
+.d7-stat-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333333;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   CTA STRIP + FEEDBACK BUTTON
+═══════════════════════════════════════════════════════════ */
+
+.d7-cta-text {
+  font-size: 15px;
+  color: #555555;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.d7-feedback-btn {
+  width: 226px;
+  height: 48px;
+  background: #3C83F6;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+  letter-spacing: 0.1px;
+}
+
+.d7-feedback-btn:hover {
+  background: #2a6de0;
+}
+
+.d7-feedback-btn:active {
+  transform: scale(0.98);
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   BANNER SECTION
+═══════════════════════════════════════════════════════════ */
+
+.d7-banner-section {
+  width: 100%;
+  background: #ffffff;
+  padding: 48px 79px;
+}
+
+.d7-banner {
+  background: #5B8EE6;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 50px 60px;
+  overflow: hidden;
+  min-height: 280px;
+  /* subtle inner glow */
+  box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.06);
+}
+
+/* ── Left: text + CTA ───────────────────────────────────── */
+.d7-banner-left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 480px;
+}
+
+.d7-banner-title {
+  font-size: 36px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.2;
+  letter-spacing: -0.4px;
+}
+
+.d7-banner-phone {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.3px;
+}
+
+.d7-banner-tagline {
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.d7-book-btn {
+  width: 130px;
+  height: 44px;
+  background: #F5A623;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.2s ease, transform 0.15s ease;
+  letter-spacing: 0.1px;
+}
+
+.d7-book-btn:hover {
+  background: #e09315;
+}
+
+.d7-book-btn:active {
+  transform: scale(0.97);
+}
+
+/* ── Right: car image ───────────────────────────────────── */
+.d7-banner-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.d7-banner-car {
+  width: 340px;
+  height: auto;
+  object-fit: contain;
+  /* slight drop shadow so car lifts off the blue bg */
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.18));
+}

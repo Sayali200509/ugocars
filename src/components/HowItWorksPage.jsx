@@ -29,51 +29,37 @@ const steps = [
     icon: "/images/hiw-return-icon.png",
     title: "Easy Return",
     desc: "Return the car at the same location with a simple, hassle-free handover process",
-    tag: "💡 No hidden charges",
+    tag: " No hidden charges",
   },
 ];
 
 // ── STATS ──────────────────────────────────────────────────
 const stats = [
-  {
-    icon: "/images/hiw-stat-secure.png",
-    value: "100%",
-    label: "Hassle free Secured Trip",
-  },
-  {
-    icon: "/images/hiw-stat-cars.png",
-    value: "25000+",
-    label: "Quality cars in the city",
-  },
-  {
-    icon: "/images/hiw-stat-delivery.png",
-    value: "Delivery",
-    label: "Anywhere, Anytime",
-  },
-  {
-    icon: "/images/hiw-stat-endless.png",
-    value: "Endless",
-    label: "Pay by hour, drive limitless",
-  },
+  { icon: "/images/hiw-stat-secure.png",   value: "100%",     label: "Hassle free Secured Trip" },
+  { icon: "/images/hiw-stat-cars.png",     value: "25000+",   label: "Quality cars in the city" },
+  { icon: "/images/hiw-stat-delivery.png", value: "Delivery", label: "Anywhere, Anytime" },
+  { icon: "/images/hiw-stat-endless.png",  value: "Endless",  label: "Pay by hour, drive limitless" },
 ];
 
-// ── CATEGORIES (order: Delivery, Budget, Top Rated, SUV for 2×2 grid) ──
+// ── CATEGORIES ─────────────────────────────────────────────
 const categories = [
-  { label: "Delivery", img: "/images/hiw-cat-delivery.png", arrow: "↗" },
-  { label: "Budget", img: "/images/hiw-cat-budget.png", arrow: "↗" },
-  { label: "Top Rated", img: "/images/hiw-cat-toprated.png", arrow: "↗" },
-  { label: "SUV", img: "/images/hiw-cat-suv.png", arrow: "↗" },
+  { label: "Delivery",  img: "/images/hiw-cat-delivery.png" },
+  { label: "Budget",    img: "/images/hiw-cat-budget.png" },
+  { label: "Top Rated", img: "/images/hiw-cat-toprated.png" },
+  { label: "SUV",       img: "/images/hiw-cat-suv.png" },
 ];
 
 // ── COMPONENT ──────────────────────────────────────────────
 const HowItWorksPage = () => {
-  const [location, setLocation] = useState("Shivaji Nagar, Pune");
+  const [city,      setCity]      = useState("Pune");
+  const [location,  setLocation]  = useState("Shivaji Nagar, Pune");
   const [tripStart, setTripStart] = useState("25 Jan'26, 8 AM");
-  const [tripEnd, setTripEnd] = useState("27 Jan'26, 8 AM");
-  const [delivery, setDelivery] = useState(false);
+  const [tripEnd,   setTripEnd]   = useState("27 Jan'26, 8 AM");
+  const [delivery,  setDelivery]  = useState(false);
 
   return (
     <div className="hiw-page">
+
       {/* ══ SECTION 1: RENT IN 4 STEPS ══════════════════════ */}
       <section className="hiw-steps-section">
         <h1 className="hiw-steps-title">
@@ -83,37 +69,29 @@ const HowItWorksPage = () => {
           Renting a car has never been this simple—choose your location, pick a date, book your ride, and enjoy the journey.
         </p>
 
-        {/* Steps row */}
         <div className="hiw-steps-row">
           {steps.map((step, i) => (
             <React.Fragment key={step.number}>
-              {/* Card */}
               <div className="hiw-step-card">
-                {/* Step number bubble */}
                 <div className="hiw-step-number">{step.number}</div>
-
-                {/* Icon box */}
                 <div className="hiw-step-icon-wrap">
                   <img src={step.icon} alt={step.title} className="hiw-step-icon" />
                 </div>
-
                 <h3 className="hiw-step-card-title">{step.title}</h3>
                 <p className="hiw-step-card-desc">{step.desc}</p>
-
-                {/* Divider + tag */}
                 <div className="hiw-step-divider" />
                 <p className="hiw-step-tag">{step.tag}</p>
               </div>
-
-              {/* Arrow connector between cards */}
               {i < steps.length - 1 && (
-                <div className="hiw-step-arrow">→</div>
+                <div className="hiw-step-arrow">
+                  <div className="hiw-step-arrow-line" />
+                  <div className="hiw-step-arrow-tip" />
+                </div>
               )}
             </React.Fragment>
           ))}
         </div>
 
-        {/* Step labels below */}
         <div className="hiw-step-labels">
           {steps.map((step) => (
             <div key={step.number} className="hiw-step-label-item">
@@ -123,7 +101,6 @@ const HowItWorksPage = () => {
           ))}
         </div>
 
-        {/* CTA */}
         <p className="hiw-cta-text">
           Ready to start your journey? The process takes less than 5 minutes!
         </p>
@@ -132,75 +109,62 @@ const HowItWorksPage = () => {
         </button>
       </section>
 
-      {/* ══ SECTION 2: BOOKING FORM + CAR IMAGE ═════════════ */}
+      {/* ══ SECTION 2: BOOKING FORM + CARS ══════════════════ */}
       <section className="hiw-booking-section">
         <div className="hiw-booking-inner">
-
-          {/* Left — form */}
           <div className="hiw-booking-form-wrap">
             <p className="hiw-booking-eyebrow">Looking for Best Car Rentals?</p>
+            {/* LEFT-aligned title — matches expected */}
             <h2 className="hiw-booking-title">Book Self-Drive Car Rentals Across India</h2>
 
-            {/* Location */}
+            {/* City dropdown */}
             <div className="hiw-field">
-              <label className="hiw-field-label">Location</label>
-              <input
-                className="hiw-input"
-                type="text"
-                value={location}
-                onChange={(e) => setLocation(e.target.value)}
-              />
+              <label className="hiw-field-label">City</label>
+              <div className="hiw-select-wrap">
+                <select className="hiw-select" value={city} onChange={(e) => setCity(e.target.value)}>
+                  <option value="Pune">Pune</option>
+                  <option value="Mumbai">Mumbai</option>
+                  <option value="Delhi">Delhi</option>
+                  <option value="Bangalore">Bangalore</option>
+                </select>
+                <span className="hiw-select-chevron">▾</span>
+              </div>
             </div>
 
-            {/* Trip Start / End */}
+            <div className="hiw-field">
+              <label className="hiw-field-label">Location</label>
+              <input className="hiw-input" type="text" value={location}
+                onChange={(e) => setLocation(e.target.value)} />
+            </div>
+
             <div className="hiw-field-row">
               <div className="hiw-field hiw-field--half">
                 <label className="hiw-field-label">Trip Starts</label>
-                <input
-                  className="hiw-input"
-                  type="text"
-                  value={tripStart}
-                  onChange={(e) => setTripStart(e.target.value)}
-                />
+                <input className="hiw-input" type="text" value={tripStart}
+                  onChange={(e) => setTripStart(e.target.value)} />
               </div>
               <div className="hiw-field hiw-field--half">
                 <label className="hiw-field-label">Trip Ends</label>
-                <input
-                  className="hiw-input"
-                  type="text"
-                  value={tripEnd}
-                  onChange={(e) => setTripEnd(e.target.value)}
-                />
+                <input className="hiw-input" type="text" value={tripEnd}
+                  onChange={(e) => setTripEnd(e.target.value)} />
               </div>
             </div>
 
-            {/* Checkbox */}
             <label className="hiw-checkbox-label">
-              <input
-                type="checkbox"
-                checked={delivery}
-                onChange={(e) => setDelivery(e.target.checked)}
-                className="hiw-checkbox"
-              />
+              <input type="checkbox" checked={delivery}
+                onChange={(e) => setDelivery(e.target.checked)} className="hiw-checkbox" />
               Delivery &amp; Pick-up, from anywhere
             </label>
 
-            {/* Search */}
             <button className="hiw-search-btn">SEARCH</button>
           </div>
 
-          {/* Right — car1 and car2 side by side */}
+          {/* cars overlap */}
           <div className="hiw-booking-cars">
-            <img
-              src="/images/contact us car1.png"
-              alt="Car rental option 1"
-              className="hiw-booking-car-img hiw-booking-car-1"
-            />
-            <img
-              src="/images/contact us car2.png"
-              alt="Car rental option 2"
-              className="hiw-booking-car-img hiw-booking-car-2"
-            />
+            <img src="/images/contact us car1.png" alt="Car 1"
+              className="hiw-booking-car-img hiw-booking-car-1" />
+            <img src="/images/contact us car2.png" alt="Car 2"
+              className="hiw-booking-car-img hiw-booking-car-2" />
           </div>
         </div>
 
@@ -221,26 +185,46 @@ const HowItWorksPage = () => {
         </div>
       </section>
 
-      {/* ══ SECTION 3: TOP CATEGORIES ════════════════════════ */}
+      {/* ══ SECTION 3: TOP CATEGORIES ════════════════════════
+          Expected layout (from design):
+          Left: "Top Categories" text — plain, no card/box
+          Grid:
+            col1(2fr): Delivery(row1) + TopRated(row2) stacked
+            col2(1fr): Budget — full height
+            col3(1fr): SUV — full height
+      ═══════════════════════════════════════════════════════ */}
       <section className="hiw-categories-section">
         <div className="hiw-categories-inner">
+
+          {/* Plain text heading — no card, no bg image box */}
           <div className="hiw-categories-heading">
             <h2 className="hiw-categories-title">Top<br />Categories</h2>
           </div>
 
           <div className="hiw-categories-grid">
-            {categories.map((cat) => (
-              <div key={cat.label} className="hiw-cat-card">
-                <img src={cat.img} alt={cat.label} className="hiw-cat-img" />
-                <div className="hiw-cat-overlay">
-                  <span className="hiw-cat-label">{cat.label}</span>
-                  <span className="hiw-cat-arrow">↗</span>
+            {categories.map((cat, index) => {
+              // Define grid positions based on index to match the expected layout
+              const gridClasses = [
+                'hiw-cat-area-delivery',  // index 0: Delivery, col1 row1
+                'hiw-cat-area-budget',    // index 1: Budget, col2 full height
+                'hiw-cat-area-suv',       // index 2: SUV, col3 full height  
+                'hiw-cat-area-toprated'   // index 3: Top Rated, col1 row2
+              ];
+              
+              return (
+                <div key={cat.label} className={`hiw-cat-card ${gridClasses[index]}`}>
+                  <img src={cat.img} alt={cat.label} className="hiw-cat-img" />
+                  <div className="hiw-cat-overlay">
+                    <span className="hiw-cat-label">{cat.label}</span>
+                    <span className="hiw-cat-arrow">↗</span>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
+
     </div>
   );
 };

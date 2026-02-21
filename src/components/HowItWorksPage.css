@@ -1,453 +1,506 @@
-/* ============================================
-   HowItWorksPage.css — Pixel-perfect Figma match
-   Page: 1920×2503 | Font: SansSerif (Work Sans)
-   Primary: #6799FE | Text: #111827
-   ============================================ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800&display=swap');
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-html, body {
-  overflow-x: hidden;
-}
-
+/* ═══════════════════════════════════════════════════════
+   PAGE WRAPPER
+═══════════════════════════════════════════════════════ */
 .hiw-page {
-  font-family: 'Work Sans', sans-serif;
-  background: #ffffff;
-  color: #111827;
   width: 100%;
+  background: #ffffff;
+  font-family: 'Inter', sans-serif;
   overflow-x: hidden;
 }
 
-/* ============================================
-   SECTION 1 — RENT IN 4 SIMPLE STEPS
-   Figma: 1400×728, top:62, left:238
-   ============================================ */
+/* ═══════════════════════════════════════════════════════
+   SECTION 1 — RENT IN 4 STEPS
+═══════════════════════════════════════════════════════ */
 .hiw-steps-section {
   width: 100%;
-  padding: 72px 80px 60px;
   background: #ffffff;
-  text-align: center;
+  padding: 60px 60px 52px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Title: "Rent in 4 Simple Steps" */
 .hiw-steps-title {
-  font-family: 'Work Sans', sans-serif;
-  font-size: 40px;
+  font-size: 44px;
   font-weight: 800;
-  color: #111827;
+  color: #111111;
+  text-align: center;
+  line-height: 1.2;
   margin-bottom: 16px;
-}
-.hiw-steps-title--blue {
-  color: #6799FE;
+  letter-spacing: -0.5px;
 }
 
+.hiw-steps-title--blue { color: #6799FE; }
+
+/* subtitle on one line */
 .hiw-steps-subtitle {
   font-size: 16px;
   font-weight: 400;
-  color: #6B7280;
-  max-width: 760px;
-  margin: 0 auto 48px;
-  line-height: 1.6;
+  color: #555555;
+  text-align: center;
+  max-width: 960px;
+  line-height: 1.65;
+  margin-bottom: 52px;
 }
 
-/* 4 cards + arrows in a row */
 .hiw-steps-row {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 0;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  align-items: start;
+  width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
+  margin-bottom: 16px;
+  padding-top: 20px;
 }
 
-/* Arrow between cards */
+/* real line + arrowhead */
 .hiw-step-arrow {
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  color: #6799FE;
-  margin-top: 120px;
-  padding: 0 8px;
-  flex-shrink: 0;
+  margin-top: 82px;
+  align-self: start;
+  padding: 0 4px;
 }
 
-/* Step card — Figma: 322×344, radius 12, border 2px #E1E7EF, bg white */
+.hiw-step-arrow-line {
+  width: 36px;
+  height: 2px;
+  background: #6799FE;
+}
+
+.hiw-step-arrow-tip {
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 7px solid #6799FE;
+}
+
 .hiw-step-card {
-  width: 322px;
-  min-height: 344px;
-  background: #FFFFFF;
-  border: 2px solid #E1E7EF;
-  border-radius: 12px;
-  padding: 52px 24px 20px;
+  background: #ffffff;
+  border: 1px solid #E1E7EF;
+  border-radius: 14px;
+  padding: 20px 18px 18px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
   position: relative;
+  min-height: 230px;
+}
+
+/* ✅ SOLID filled blue bubble — background is pure #6799FE, NOT rgba */
+.hiw-step-number {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #6799FE !important;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #ffffff;
+  box-shadow: 0 2px 8px rgba(103,153,254,0.4);
+  z-index: 1;
+  /* make sure nothing overrides this */
+  opacity: 1;
+}
+
+.hiw-step-icon-wrap {
+  width: 52px;
+  height: 52px;
+  background: #eef3ff;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 14px 0 14px;
   flex-shrink: 0;
 }
 
-/* Step number bubble — sits on top edge, centered */
-.hiw-step-number {
-  position: absolute;
-  top: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: #6799FE;
-  color: #ffffff;
-  font-size: 16px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Icon container — Figma: 64×64, radius 16, bg #3C83F61A */
-.hiw-step-icon-wrap {
-  width: 64px;
-  height: 64px;
-  border-radius: 16px;
-  background: rgba(60, 131, 246, 0.1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-.hiw-step-icon {
-  width: 36px;
-  height: 36px;
-  object-fit: contain;
-}
+.hiw-step-icon { width: 28px; height: 28px; object-fit: contain; }
 
 .hiw-step-card-title {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 700;
-  color: #111827;
-  margin-bottom: 12px;
+  color: #111111;
+  margin-bottom: 8px;
+  text-align: center;
+  width: 100%;
 }
 
-/* Description — Figma: SansSerif 400, 15.1px, line-height 24px, #6B7280, center */
 .hiw-step-card-desc {
-  font-size: 15px;
-  font-weight: 400;
-  color: #6B7280;
-  line-height: 24px;
+  font-size: 12.5px;
+  color: #666666;
+  line-height: 1.65;
   text-align: center;
-  margin-bottom: 16px;
   flex: 1;
 }
 
-/* Divider — Figma: 3px solid #6799FE, width ~61px */
 .hiw-step-divider {
-  width: 61px;
-  height: 0;
-  border-top: 3px solid #6799FE;
-  margin: 0 auto 12px;
+  width: 100%;
+  height: 1px;
+  background: #E8ECF4;
+  margin: 12px 0 10px;
 }
 
-/* Tag — Figma: bold 13px, #6799FE */
 .hiw-step-tag {
-  font-size: 13px;
-  font-weight: 700;
+  font-size: 11.5px;
   color: #6799FE;
+  font-weight: 500;
   text-align: center;
+  width: 100%;
 }
 
-/* Step labels row (below cards) */
 .hiw-step-labels {
-  display: flex;
-  justify-content: center;
-  gap: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
   max-width: 1200px;
-  margin: 24px auto 0;
+  margin-bottom: 36px;
 }
+
 .hiw-step-label-item {
-  width: 322px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
-  /* account for arrows between cards */
-  padding: 0 24px;
-}
-.hiw-step-label-arrow {
-  font-size: 16px;
-  color: #9CA3AF;
-}
-.hiw-step-label-text {
-  font-size: 13px;
-  color: #9CA3AF;
+  gap: 3px;
+  padding-top: 6px;
 }
 
-/* CTA */
+.hiw-step-label-arrow { font-size: 14px; color: #6799FE; }
+.hiw-step-label-text  { font-size: 12px; font-weight: 500; color: #888888; }
+
 .hiw-cta-text {
-  margin-top: 40px;
-  font-size: 16px;
-  color: #374151;
-  font-weight: 400;
+  font-size: 15px;
+  color: #555555;
+  text-align: center;
+  margin-bottom: 18px;
 }
+
 .hiw-cta-btn {
-  margin-top: 16px;
-  background: #6799FE;
-  color: #ffffff;
-  border: none;
-  border-radius: 8px;
-  padding: 14px 32px;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: 'Work Sans', sans-serif;
+  background: linear-gradient(90deg, #4d8dff 0%, #2f6ee9 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: 999px;
+  padding: 0 32px;
+  height: 48px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(47, 110, 233, 0.35);
+  transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
-.hiw-cta-btn:hover { background: #4f7fe0; }
-.hiw-cta-btn-arrow { font-size: 18px; }
 
-/* ============================================
-   SECTION 2 — BOOKING FORM + CAR
-   Figma: bg #EEF3FF area, form 780×384
-   ============================================ */
+.hiw-cta-btn:hover  {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 22px rgba(47, 110, 233, 0.45);
+}
+
+.hiw-cta-btn:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 4px 14px rgba(47, 110, 233, 0.35);
+}
+.hiw-cta-btn-arrow  { font-size: 16px; }
+
+/* ═══════════════════════════════════════════════════════
+   SECTION 2 — BOOKING FORM + CARS
+═══════════════════════════════════════════════════════ */
 .hiw-booking-section {
   width: 100%;
-  background: #EEF3FF;
-  padding: 60px 80px 0;
+  background: linear-gradient(180deg, #e5f0ff 0%, #cbd9f5 100%);
+  padding: 52px 60px 12px;
 }
 
 .hiw-booking-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  align-items: start;
+  display: flex;
+  align-items: flex-end;
+  gap: 40px;
 }
 
-/* Form card — Figma: 780×384, radius top-right 6, bottom-right 6, bottom-left 6, bg white */
 .hiw-booking-form-wrap {
-  background: #FFFFFF;
-  border-radius: 0 6px 6px 6px;
-  padding: 28px 32px 32px;
-  width: 100%;
-  max-width: 600px;
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 28px 28px 24px;
+  width: 420px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
 }
 
 .hiw-booking-eyebrow {
-  font-size: 13px;
-  font-weight: 400;
-  color: #6B7280;
-  margin-bottom: 4px;
-}
-
-.hiw-booking-title {
-  font-size: 22px;
-  font-weight: 800;
-  color: #111827;
-  margin-bottom: 20px;
-  line-height: 1.3;
-}
-
-/* Field wrapper */
-.hiw-field {
-  margin-bottom: 12px;
-}
-.hiw-field-label {
-  display: block;
   font-size: 12px;
-  color: #6B7280;
-  margin-bottom: 4px;
+  font-weight: 500;
+  color: #888888;
 }
 
-/* Dropdown — Figma: border #DDDDDD right 1px */
-.hiw-field--dropdown {
-  border: 1px solid #E5E7EB;
-  border-radius: 8px;
-  padding: 10px 14px;
-}
-.hiw-dropdown {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.hiw-dropdown-value {
-  font-size: 16px;
+/* ✅ LEFT-aligned title — matches expected design */
+.hiw-booking-title {
+  font-size: 17px;
   font-weight: 700;
-  color: #111827;
-}
-.hiw-dropdown-arrow {
-  font-size: 18px;
-  color: #6B7280;
+  color: #111111;
+  line-height: 1.35;
+  text-align: left;
+  margin-bottom: 2px;
 }
 
-/* Input */
-.hiw-field > .hiw-input,
-.hiw-field--half .hiw-input {
-  width: 100%;
-  border: 1px solid #E5E7EB;
+.hiw-field       { display: flex; flex-direction: column; gap: 5px; }
+.hiw-field-row   { display: flex; gap: 12px; }
+.hiw-field--half { flex: 1; }
+
+.hiw-field-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: #999999;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.hiw-select-wrap { position: relative; }
+
+.hiw-select {
+  height: 42px;
+  border: 1px solid #E0E5EE;
   border-radius: 8px;
-  padding: 10px 14px;
-  font-size: 15px;
-  font-weight: 700;
-  color: #111827;
-  font-family: 'Work Sans', sans-serif;
+  padding: 0 36px 0 12px;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  color: #111111;
+  background: #ffffff;
   outline: none;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
 }
-.hiw-field > .hiw-input { margin-top: 0; }
 
-/* Half-width field row */
-.hiw-field-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 12px;
+.hiw-select:focus { border-color: #6799FE; }
+
+.hiw-select-chevron {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #888888;
+  font-size: 14px;
 }
-.hiw-field--half { margin-bottom: 0; }
 
-/* Checkbox */
+.hiw-input {
+  height: 42px;
+  border: 1px solid #E0E5EE;
+  border-radius: 8px;
+  padding: 0 12px;
+  font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  color: #111111;
+  background: #ffffff;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+.hiw-input:focus { border-color: #6799FE; }
+
 .hiw-checkbox-label {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 14px;
-  color: #374151;
-  margin-bottom: 16px;
+  font-size: 13px;
+  color: #444444;
   cursor: pointer;
 }
+
 .hiw-checkbox {
-  width: 16px;
-  height: 16px;
-  border: 1px solid #D1D5DB;
-  border-radius: 3px;
+  width: 15px;
+  height: 15px;
   accent-color: #6799FE;
+  flex-shrink: 0;
 }
 
-/* Search button */
 .hiw-search-btn {
-  width: 100%;
+  height: 44px;
   background: #6799FE;
   color: #ffffff;
   border: none;
   border-radius: 8px;
-  padding: 14px;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
-  letter-spacing: 0.5px;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 1px;
   cursor: pointer;
-  font-family: 'Work Sans', sans-serif;
+  width: 100%;
+  margin-top: 4px;
+  transition: background 0.2s ease;
 }
-.hiw-search-btn:hover { background: #4f7fe0; }
 
-/* Car images on right — car1 and car2 side by side */
+.hiw-search-btn:hover { background: #4f82f0; }
+
 .hiw-booking-cars {
-  position: relative;
+  flex: 1;
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  min-height: 320px;
-  gap: 0;
-}
-.hiw-booking-car-img {
-  object-fit: contain;
-  flex-shrink: 0;
-}
-.hiw-booking-car-1 {
-  max-width: 52%;
-  max-height: 320px;
-  z-index: 2;
-  position: relative;
-}
-.hiw-booking-car-2 {
-  max-width: 52%;
-  max-height: 320px;
-  margin-left: -8%;
-  z-index: 1;
-  position: relative;
+  min-height: 260px;
 }
 
-/* Stats bar — Figma: 4 stats with dividers, bg #EEF3FF */
+.hiw-booking-car-img { object-fit: contain; display: block; }
+
+.hiw-booking-car-1 {
+  width: 55%;
+  max-width: 420px;
+  position: relative;
+  z-index: 2;
+}
+
+/* ✅ cars overlap tightly */
+.hiw-booking-car-2 {
+  width: 45%;
+  max-width: 340px;
+  position: relative;
+  z-index: 1;
+  margin-left: -120px;
+}
+
+/* ✅ light stats bar with dark text */
 .hiw-stats-bar {
+  width: 100%;
+  max-width: 1040px;
+  margin: 28px auto 0;
+  background: rgba(255, 255, 255, 0.92);
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 0;
-  padding: 28px 0;
-  max-width: 1200px;
-  margin: 0 auto;
+  justify-content: space-around;
+  padding: 20px 40px;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
-.hiw-stat {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 0 48px;
-}
-.hiw-stat-icon {
-  width: 48px;
-  height: 48px;
-  object-fit: contain;
-}
-.hiw-stat-text {
-  display: flex;
-  flex-direction: column;
-}
+
+.hiw-stat { display: flex; align-items: center; gap: 14px; }
+
+.hiw-stat-icon { width: 44px; height: 44px; object-fit: contain; flex-shrink: 0; }
+
+.hiw-stat-text { display: flex; flex-direction: column; gap: 3px; }
+
 .hiw-stat-value {
   font-size: 18px;
-  font-weight: 700;
-  color: #111827;
+  font-weight: 800;
+  color: #111111;
+  line-height: 1;
 }
+
 .hiw-stat-label {
   font-size: 12px;
-  color: #6B7280;
+  font-weight: 400;
+  color: #444444;
+  line-height: 1.3;
 }
-/* Figma: border-right 1px #DDDDDD between stats */
+
 .hiw-stat-divider {
   width: 1px;
-  height: 48px;
-  background: #DDDDDD;
+  height: 40px;
+  background: rgba(0,0,0,0.15);
   flex-shrink: 0;
 }
 
-/* ============================================
+/* ═══════════════════════════════════════════════════════
    SECTION 3 — TOP CATEGORIES
-   ============================================ */
+
+   ✅ CORRECT layout matching expected design:
+
+   [Top Categories text] | Delivery(wide)  | Budget(tall) | SUV(tall) |
+                         | TopRated(wide)  |              |           |
+
+   grid-template-columns: 2fr 1fr 1fr
+   grid-template-rows:    1fr 1fr
+
+   col1: Delivery(row1) + TopRated(row2)
+   col2: Budget spans rows 1-2
+   col3: SUV spans rows 1-2
+═══════════════════════════════════════════════════════ */
 .hiw-categories-section {
   width: 100%;
-  background: #F9FAFB;
-  padding: 60px 80px;
+  padding: 56px 60px;
+  background: #f5f7fb;
+  box-sizing: border-box;
 }
 
 .hiw-categories-inner {
-  max-width: 1200px;
-  margin: 0 auto;
   display: flex;
   align-items: center;
-  gap: 48px;
+  gap: 20px;
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
 }
 
+/* ✅ Plain text heading — vertically centered with grid */
 .hiw-categories-heading {
   flex-shrink: 0;
-  width: 200px;
-}
-.hiw-categories-title {
-  font-size: 48px;
-  font-weight: 800;
-  color: #111827;
-  line-height: 1.1;
+  width: 220px;
+  display: flex;
+  align-items: center;
 }
 
-/* 2×2 uniform grid — like reference image */
+.hiw-categories-title {
+  font-size: 40px;
+  font-weight: 800;
+  color: #111111;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+}
+
+/* ✅ Correct asymmetric grid - constrained to not overflow */
 .hiw-categories-grid {
   flex: 1;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  gap: 16px;
-  max-width: 640px;
+  gap: 10px;
+  min-height: 360px;
+  min-width: 0;
+  overflow: hidden;
+}
+
+/* Delivery — col1 row1 (wide top) */
+.hiw-cat-area-delivery {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+/* Top Rated — col1 row2 (wide bottom) */
+.hiw-cat-area-toprated {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+/* Budget — col2, full height */
+.hiw-cat-area-budget {
+  grid-column: 2;
+  grid-row: 1 / 3;
+}
+
+/* SUV — col3, full height */
+.hiw-cat-area-suv {
+  grid-column: 3;
+  grid-row: 1 / 3;
 }
 
 .hiw-cat-card {
@@ -455,68 +508,45 @@ html, body {
   border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
-  min-height: 200px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: box-shadow 0.2s ease;
-}
-.hiw-cat-card:hover {
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
 }
 
 .hiw-cat-img {
   width: 100%;
   height: 100%;
-  min-height: 200px;
   object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
 }
+
+.hiw-cat-card:hover .hiw-cat-img { transform: scale(1.04); }
 
 .hiw-cat-overlay {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 70%);
-  padding: 14px 16px;
+  background: linear-gradient(to top, rgba(0,0,0,0.60) 0%, transparent 65%);
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: space-between;
+  padding: 12px 14px;
 }
+
 .hiw-cat-label {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   color: #ffffff;
 }
+
 .hiw-cat-arrow {
-  font-size: 16px;
+  font-size: 13px;
   color: #ffffff;
-}
-
-/* ============================================
-   RESPONSIVE
-   ============================================ */
-@media (max-width: 1280px) {
-  .hiw-steps-section, .hiw-booking-section,
-  .hiw-categories-section { padding-left: 32px; padding-right: 32px; }
-
-  .hiw-booking-inner { grid-template-columns: 1fr; }
-  .hiw-booking-form-wrap { width: 100%; }
-  .hiw-booking-cars { min-height: 260px; flex-wrap: wrap; justify-content: center; gap: 16px; }
-  .hiw-booking-car-1, .hiw-booking-car-2 { max-width: 45%; margin-left: 0; }
-
-  .hiw-steps-row { flex-wrap: wrap; gap: 16px; }
-  .hiw-step-arrow { display: none; }
-  .hiw-step-card { width: calc(50% - 8px); }
-  .hiw-step-labels { display: none; }
-}
-
-@media (max-width: 768px) {
-  .hiw-steps-title { font-size: 28px; }
-  .hiw-step-card { width: 100%; }
-  .hiw-stats-bar { flex-wrap: wrap; gap: 24px; }
-  .hiw-stat-divider { display: none; }
-  .hiw-categories-inner { flex-direction: column; }
-  .hiw-categories-title { font-size: 36px; }
-  .hiw-categories-grid { max-width: 100%; min-height: auto; }
-  .hiw-cat-card { min-height: 180px; }
-  .hiw-booking-car-1, .hiw-booking-car-2 { max-width: 100%; }
+  background: rgba(255,255,255,0.2);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
 }

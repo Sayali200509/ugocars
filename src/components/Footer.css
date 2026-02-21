@@ -1,191 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+
+/* ─── FOOTER WRAPPER ────────────────────────────────────────────────
+   spec (image6): width 1495px, height 525px, border 1px #000000
+   bg: rgba(115,113,113,0.23) — grey at 23% opacity
+   ─────────────────────────────────────────────────────────────────── */
 .footer {
-  background: rgba(115, 113, 113, 0.23); /* #737171 with 23% opacity */
-  opacity: 1;
+  width: 100%;
+  min-height: 525px;
+  background: rgba(115, 113, 113, 0.23);
+  border: 1px solid #000000;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  padding: 40px;
-  box-sizing: border-box;
-  width: 100%;
-  margin-top: auto; /* Push footer to bottom */
+  padding: 48px 55px 32px 55px;
 }
 
+/* ─── MAIN COLUMNS ROW ──────────────────────────────────────────────
+   4 columns: Company Info | Quick Links | Vehicle Types | Contact Us
+   ─────────────────────────────────────────────────────────────────── */
 .footer-container {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
+  align-items: flex-start;
   flex: 1;
+  gap: 40px;
 }
 
 .footer-section {
-  flex: 1;
-  min-width: 200px;
-  margin: 20px;
-}
-
-/* Logo Section */
-.company-info {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
 }
 
-.footer-logo {
-  width: 100px;
-  height: 100px;
-  margin-right: 15px;
+/* ─── COL 1: COMPANY INFO ───────────────────────────────────────────
+   Logo 104×82px + "UGoCar" brand name (Inter 700 22px) side by side
+   Description below: Inter 500, opacity 70%
+   ─────────────────────────────────────────────────────────────────── */
+.company-info {
+  max-width: 420px;
 }
 
-.company-description {
-  color: #333;
-  font-size: 15px;
-  line-height: 1.6;
-  max-width: 300px;
-  margin: 0;
-  font-weight: 400;
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 28px;
 }
 
-/* Headings */
-.footer-heading {
-  font-size: 20px;
+/* Outer ring: light blue border, perfect circle */
+.footer-logo-outer {
+  width: 90px;
+  height: 90px;
+  border: 2px solid #B8D0F8;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Inner black circle — perfect circle */
+.footer-logo-inner {
+  width: 76px;
+  height: 76px;
+  background: #000000;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #FFFFFF;
+}
+
+.footer-logo-ugo {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.5px;
+}
+
+.footer-logo-car {
+  font-family: 'Inter', sans-serif;
+  font-size: 6px;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
+/* "UGoCar" brand name: spec image3 — Inter 700 22px */
+.footer-brand-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 22px;
   font-weight: 700;
-  color: #000;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  color: #000000;
+  white-space: nowrap;
 }
 
-/* Links */
+/* Description: spec image4 — Inter 500, opacity 70% */
+.company-description {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+  opacity: 0.7;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 370px;
+}
+
+/* ─── HEADINGS (Quick Links, Vehicle Types, Contact Us) ─────────────
+   spec image2: Inter 500 (Medium) 20px, NOT uppercase, NOT bold
+   ─────────────────────────────────────────────────────────────────── */
+.footer-heading {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #000000;
+  margin: 0 0 24px 0;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* ─── LINK LISTS ────────────────────────────────────────────────────
+   spec image8: Inter 500, opacity 70%
+   ─────────────────────────────────────────────────────────────────── */
 .footer-links {
   list-style: none;
   padding: 0;
   margin: 0;
-}
-
-.footer-links li {
-  margin-bottom: 12px;
-}
-
-.footer-links a {
-  color: #333;
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 400;
-  transition: color 0.3s ease;
-  line-height: 1.6;
-}
-
-.footer-links a:hover {
-  color: #000;
-  text-decoration: underline;
-}
-
-/* Contact Info */
-.contact-info {
-  color: #333;
-}
-
-.contact-item {
-  margin-bottom: 12px;
-  font-size: 15px;
   display: flex;
-  align-items: flex-start;
-  font-weight: 400;
-  line-height: 1.6;
-}
-
-.contact-label {
-  font-weight: 600;
-  margin-right: 8px;
-  min-width: 50px;
-  color: #000;
-}
-
-.contact-link {
-  color: #333;
-  text-decoration: none;
-  font-weight: 400;
-  transition: color 0.3s ease;
-  line-height: 1.6;
-}
-
-.contact-link:hover {
-  color: #000;
-  text-decoration: underline;
-}
-
-.contact-text {
-  color: #333;
-  font-weight: 400;
-  line-height: 1.6;
-}
-
-/* Bottom Bar */
-.footer-bottom {
-  border-top: 1px solid #aaa;
-  padding-top: 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.copyright {
-  color: #333;
-  font-size: 15px;
-  margin: 0;
-  font-weight: 400;
-  line-height: 1.6;
-}
-
-.footer-legal {
-  display: flex;
+  flex-direction: column;
   gap: 20px;
 }
 
-.legal-link {
-  color: #333;
+.footer-links a {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+  opacity: 0.7;
   text-decoration: none;
-  font-size: 15px;
-  font-weight: 400;
-  transition: color 0.3s ease;
+  transition: opacity 0.2s ease;
+  display: block;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+}
+
+/* ─── CONTACT INFO ──────────────────────────────────────────────────
+   No labels — just plain text lines, same style as footer links
+   ─────────────────────────────────────────────────────────────────── */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-item {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
   line-height: 1.6;
 }
 
-.legal-link:hover {
-  color: #000;
-  text-decoration: underline;
+.contact-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+  opacity: 0.7;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
 }
 
-/* Responsive Design */
-@media (max-width: 1200px) {
-  .footer {
-    width: 100%;
-  }
-  
+.contact-link:hover {
+  opacity: 1;
+}
+
+.contact-text {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+  opacity: 0.7;
+}
+
+/* ─── BOTTOM BAR ────────────────────────────────────────────────────
+   Single border-top acts as the divider line (no separate div)
+   Copyright pinned left, legal links pinned right
+   ─────────────────────────────────────────────────────────────────── */
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+  padding-top: 24px;
+  margin-top: 36px;
+}
+
+/* Copyright: spec image1 — Inter 500 18px, opacity 70% */
+.copyright {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #000000;
+  opacity: 0.7;
+  margin: 0;
+  line-height: 1;
+}
+
+/* Legal links: spec image9 — 200×22 block total, evenly spaced */
+.footer-legal {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+.legal-link {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+  opacity: 0.7;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+}
+
+.legal-link:hover {
+  opacity: 1;
+}
+
+/* ─── RESPONSIVE ────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
   .footer-container {
-    flex-direction: column;
-    gap: 30px;
+    flex-wrap: wrap;
+    gap: 36px;
   }
-  
   .footer-section {
-    margin: 10px 0;
+    min-width: 180px;
   }
 }
 
 @media (max-width: 768px) {
   .footer {
-    height: auto;
-    padding: 30px 20px;
+    padding: 36px 24px 24px 24px;
   }
-  
+  .footer-container {
+    flex-direction: column;
+    gap: 32px;
+  }
   .footer-bottom {
     flex-direction: column;
-    gap: 15px;
+    gap: 16px;
     text-align: center;
   }
-  
   .footer-legal {
+    gap: 24px;
+    flex-wrap: wrap;
     justify-content: center;
   }
 }

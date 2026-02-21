@@ -1,0 +1,206 @@
+/* ============================================================
+   Desktop5.css — Canvas: 1440 × 735 px
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
+
+.hiw-section {
+  position: relative;
+  width: 100%;
+  min-height: 735px;
+  background: #FFFFFF;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 107px 60px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+/* Ellipse 8: top 754px, left -34px — 159×132px, #4B44FF 40%, blur 200 */
+.hiw-section::before {
+  content: '';
+  position: absolute;
+  width: 159px;
+  height: 132px;
+  background: rgba(75, 68, 255, 0.4);
+  border-radius: 50%;
+  filter: blur(200px);
+  top: 754px;
+  left: -34px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Second ellipse — top-right, same spec as other pages */
+.hiw-section::after {
+  content: '';
+  position: absolute;
+  width: 159px;
+  height: 132px;
+  background: rgba(75, 68, 255, 0.4);
+  border-radius: 50%;
+  filter: blur(200px);
+  top: -9px;
+  right: -10px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* HOW IT WORKS label — Inter 500, 18px, #6799FE */
+.hiw-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  color: #6799FE;
+  letter-spacing: 0;
+  line-height: 1;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Title — Inter 800, 50px, line-height 115px */
+.hiw-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 50px;
+  font-weight: 800;
+  color: #111111;
+  line-height: 115px;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 1;
+}
+.hiw-title span { color: #6799FE; }
+
+/* Subtitle */
+.hiw-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #555555;
+  line-height: 1.6;
+  max-width: 760px;
+  margin-bottom: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+/* 2x2 Grid — always 2 columns, never collapses */
+.hiw-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  width: 100%;
+  max-width: 1226px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Card */
+.hiw-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f5;
+  border-radius: 16px;
+  padding: 28px;
+  min-height: 265px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  box-sizing: border-box;
+  position: relative;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.hiw-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(103, 153, 254, 0.15);
+}
+
+/* Card top row */
+.hiw-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+/* Icon box — 48x48, #dbeeff, radius 10px */
+.hiw-icon-box {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  background: #dbeeff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.hiw-icon-box svg {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+/* Step number */
+.hiw-step-number {
+  font-family: 'Inter', sans-serif;
+  font-size: 64px;
+  font-weight: 700;
+  color: #b0bfd0;
+  opacity: 0.4;
+  line-height: 1;
+  user-select: none;
+}
+
+/* Card title */
+.hiw-card-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 8px;
+}
+
+/* Card description */
+.hiw-card-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #555555;
+  line-height: 1.55;
+  flex: 1;
+}
+
+/* Card link — NO arrow, NO border, NO box */
+.hiw-card-link {
+  display: inline-block;
+  margin-top: 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: #6799FE;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-appearance: none;
+  appearance: none;
+  box-shadow: none;
+}
+/* Remove any global arrow injection */
+.hiw-card-link::after,
+.hiw-card-link::before {
+  content: none !important;
+  display: none !important;
+}
+.hiw-card-link:hover {
+  text-decoration: underline;
+}

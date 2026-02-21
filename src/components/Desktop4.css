@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* =====================================================
+   PAGE WRAPPER
+   Spec: width 1440, height 789, background #FFFFFF
+   ===================================================== */
+.desktop4-wrapper {
+  width: 1440px;
+  min-height: 789px;
+  background: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+/* =====================================================
+   BACKGROUND ELLIPSES
+   Spec: 159×132px, #4B44FF @ 40%, blur 200
+   Ellipse 5 → top: -14px, left: -10px
+   Ellipse 7 → top: -9px,  left: 1315px
+   ===================================================== */
+.bg-ellipse {
+  position: absolute;
+  width: 159px;
+  height: 132px;
+  background: rgba(75, 68, 255, 0.4);
+  border-radius: 50%;
+  filter: blur(200px);
+  pointer-events: none;
+  z-index: 0;
+}
+.bg-ellipse--tl { top: -14px; left: -10px; }
+.bg-ellipse--tr { top: -9px;  left: 1315px; }
+
+/* =====================================================
+   SECTION & CONTAINER
+   ===================================================== */
+.fleet-section {
+  position: relative;
+  z-index: 1;
+  padding: 54px 0 60px;
+}
+
+.fleet-container {
+  width: 1440px;
+  padding: 0 111px;
+  box-sizing: border-box;
+}
+
+/* =====================================================
+   HEADER
+   ===================================================== */
+.fleet-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+/* Spec: Inter 500, 18px, line-height 100%, #6799FE */
+.fleet-label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1;
+  color: #6799FE;
+  margin: 0 0 14px 0;
+  letter-spacing: 0;
+}
+
+/* Spec: Inter 800, 50px, line-height 115px, #000000 */
+.fleet-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 800;
+  font-size: 50px;
+  line-height: 115px;
+  color: #000000;
+  margin: 0;
+}
+.title-highlight { color: #6799FE; }
+
+/* Spec: Inter 500, 22px, line-height 100%, #000000 */
+.fleet-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1;
+  color: #000000;
+  max-width: 1219px;
+  margin: 0 auto;
+}
+
+/* =====================================================
+   CARS GRID — 3 columns, always
+   ===================================================== */
+.cars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* =====================================================
+   CAR CARD
+   Spec: 575×380, border 1px solid #00000030, radius 20px
+   ===================================================== */
+.car-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.19);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.car-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(103, 153, 254, 0.15);
+}
+
+/* =====================================================
+   CAR IMAGE
+   Spec: 400×250, top-left-radius 20px, top-right-radius 20px
+   ===================================================== */
+.car-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 8 / 5;
+  overflow: hidden;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+.car-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+/* =====================================================
+   BADGE
+   Spec: 218×23px, border-radius 10px, #6799FE
+   ===================================================== */
+.car-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  height: 23px;
+  padding: 0 14px;
+  background: #6799FE;
+  border-radius: 10px;
+  display: inline-flex;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  color: #FFFFFF;
+}
+
+/* =====================================================
+   CARD BODY
+   ===================================================== */
+.car-info {
+  padding: 16px 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+/* Spec: Inter 700, 22px, #000000 */
+.car-name {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 1;
+  color: #000000;
+  margin: 0;
+}
+
+/* Spec: icons 16×16 */
+.car-specs {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.spec-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: #6B7280;
+  line-height: 1;
+}
+
+/* =====================================================
+   CARD FOOTER
+   Spec: button 223×30, border-radius 8px
+   ===================================================== */
+.car-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 4px;
+}
+.car-price {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  flex-shrink: 0;
+}
+.price-amount {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: #000000;
+}
+.price-unit {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #6B7280;
+}
+
+.rent-btn {
+  flex-shrink: 0;
+  padding: 0 28px;
+  height: 30px;
+  background: #6799FE;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #FFFFFF;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.2s ease;
+}
+.rent-btn:hover { background: #5080f0; }

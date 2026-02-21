@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
+
+/* ── Section ──
+   REMOVED: max-width, margin: 0 auto, fixed widths — all cause layout collapse */
+.d6-section {
+  position: relative;
+  width: 100%;
+  min-height: 850px;
+  background: #ffffff;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 80px;
+  box-sizing: border-box;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Ellipse 7: top 27px, left -25px — 159×132px, #4B44FF 40%, blur 200 */
+.d6-section::before {
+  content: '';
+  position: absolute;
+  width: 159px;
+  height: 132px;
+  background: rgba(75, 68, 255, 0.4);
+  border-radius: 50%;
+  filter: blur(200px);
+  top: 27px;
+  left: -25px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Ellipse 8: top 692px, left 1263px — 204×132px, #4B44FF 40%, blur 200 */
+.d6-section::after {
+  content: '';
+  position: absolute;
+  width: 204px;
+  height: 132px;
+  background: rgba(75, 68, 255, 0.4);
+  border-radius: 50%;
+  filter: blur(200px);
+  top: 692px;
+  left: 1263px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Title — Inter 800, 50px, line-height 115px */
+.d6-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 50px;
+  font-weight: 800;
+  color: #111111;
+  line-height: 115px;
+  margin-bottom: 0;
+  position: relative;
+  z-index: 1;
+}
+.d6-title span { color: #4A90D9; }
+
+/* Subtitle — Inter 500, 22px, line-height 100% */
+.d6-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  color: #444444;
+  line-height: 1;
+  text-align: center;
+  margin-bottom: 48px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Grid — 3 columns, always, never collapses */
+.d6-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  width: 100%;
+  max-width: 1280px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Card */
+.d6-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f5;
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  box-sizing: border-box;
+  min-height: 199px;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+.d6-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(103, 153, 254, 0.15);
+}
+
+/* Icon box — 40×40, #dbeeff, radius 10px */
+.d6-icon-box {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  min-height: 40px;
+  background: #dbeeff;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.d6-icon-box svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+/* Card title */
+.d6-card-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111111;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+/* Card description */
+.d6-card-desc {
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #555555;
+  line-height: 1.55;
+}

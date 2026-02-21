@@ -10,13 +10,12 @@ import HowItWorksPage from "./components/HowItWorksPage";
 import Footer from "./components/Footer";
 import "./App.css";
 
-// Helper component to sync active section with route
+// ── FIXED: PageWrapper no longer wraps children in extra elements ──
 function PageWrapper({ children, defaultSection }) {
   const [activeSection, setActiveSection] = useState(defaultSection);
   const location = useLocation();
 
   useEffect(() => {
-    // Map paths to sections
     const pathToSection = {
       "/": "Home",
       "/cars": "Cars",
@@ -25,17 +24,24 @@ function PageWrapper({ children, defaultSection }) {
       "/locations": "Locations",
       "/how-it-works": "How it works?"
     };
-    
     const currentSection = pathToSection[location.pathname] || defaultSection;
     setActiveSection(currentSection);
   }, [location.pathname, defaultSection]);
 
-  return React.Children.map(children, child => 
-    React.cloneElement(child, { activeSection, setActiveSection })
+  // Pass activeSection/setActiveSection via context instead of cloneElement
+  // This avoids wrapping children in extra divs that break full-width layout
+  return (
+    <>
+      {React.Children.map(children, child =>
+        React.isValidElement(child)
+          ? React.cloneElement(child, { activeSection, setActiveSection })
+          : child
+      )}
+    </>
   );
 }
 
-/* ── Home Page Component ── */
+/* ── Home Page ── */
 function HomePage() {
   return (
     <PageWrapper defaultSection="Home">
@@ -45,7 +51,7 @@ function HomePage() {
   );
 }
 
-/* ── Benefits Page Layout ── */
+/* ── Benefits Page ── */
 function BenefitsPageLayout() {
   return (
     <PageWrapper defaultSection="Benefits">
@@ -56,7 +62,7 @@ function BenefitsPageLayout() {
   );
 }
 
-/* ── Contact Page Layout ── */
+/* ── Contact Page ── */
 function ContactPageLayout() {
   return (
     <PageWrapper defaultSection="Contact">
@@ -67,7 +73,7 @@ function ContactPageLayout() {
   );
 }
 
-/* ── Locations Page Layout ── */
+/* ── Locations Page ── */
 function LocationsPageLayout() {
   return (
     <PageWrapper defaultSection="Locations">
@@ -78,7 +84,7 @@ function LocationsPageLayout() {
   );
 }
 
-/* ── How It Works Page Layout ── */
+/* ── How It Works Page ── */
 function HowItWorksPageLayout() {
   return (
     <PageWrapper defaultSection="How it works?">
@@ -89,7 +95,7 @@ function HowItWorksPageLayout() {
   );
 }
 
-/* ── Cars Page Layout ── */
+/* ── Cars Page ── */
 function CarsPageLayout() {
   return (
     <PageWrapper defaultSection="Cars">

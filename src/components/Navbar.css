@@ -1,130 +1,166 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&display=swap');
 
-
+/* ─── NAVBAR WRAPPER ───────────────────────────────────────────────── */
 .navbar {
-    width: 100%;
-    height: 100px;
-    background: #FFFFFF;
-    border-bottom: 1px solid #E1E7EF;
-    display: flex;
-    justify-content: center;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+  width: 100%;
+  height: 100px;           /* spec: height 100px */
+  background: #FFFFFF;
+  border-bottom: 1px solid #E1E7EF;
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-
+/* ─── INNER CONTAINER ──────────────────────────────────────────────── */
 .nav-container {
-    width: 100%;
-    max-width: 1400px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 50px;
+  width: 100%;
+  max-width: 1440px;       /* spec: navbar width 1440px */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
 }
 
-/* Left section - Logo and Home */
+/* ─── LEFT SECTION: Logo only ─────────────────────────────────────── */
 .nav-left {
-    display: flex;
-    align-items: center;
-    gap: 30px;
+  display: flex;
+  align-items: center;
 }
 
-/* Center section - Navigation links */
+/* ─── CENTER SECTION: All nav links ───────────────────────────────── */
 .nav-center {
-    display: flex;
-    gap: 35px;
-    height: 100%;
-    align-items: center;
+  display: flex;
+  gap: 50px;
+  height: 100%;
+  align-items: center;
 }
 
-/* Right section - Call button */
+/* ─── RIGHT SECTION: Call Now button ──────────────────────────────── */
 .nav-right {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
-
-/* LOGO DESIGN */
-.logo-outer-ring {
-    width: 62px;
-    height: 62px;
-    border: 1px solid #E1E7EF;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* ─── LOGO ──────────────────────────────────────────────────────────
+   Outer ring: 62×62, 1px border #E1E7EF, border-radius 50%
+   Inner black circle: 50×50, bg #000, border-radius 50%
+   Positioned: left:18px, top:12px in absolute navbar layout
+   ────────────────────────────────────────────────────────────────── */
+.logo-group {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
-
 
 .logo-inner-black {
-    width: 50px;
-    height: 50px;
-    background: #000000;
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: #FFFFFF;
+  width: 62px;
+  height: 62px;
+  background: #000000;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #FFFFFF;
 }
 
+/* "UGO" text inside logo */
+.logo-u {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.5px;
+}
 
-.logo-u { font-size: 11px; font-weight: 800; line-height: 1; }
-.logo-c { font-size: 5px; letter-spacing: 0.5px; }
-.brand-name { font-size: 24px; font-weight: 700; color: #000; margin-left: 15px; font-family: 'Instrument Sans'; }
-.logo-group { display: flex; align-items: center; cursor: pointer; }
+/* "CAR RENTALS" text inside logo */
+.logo-c {
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 5.5px;
+  letter-spacing: 0.5px;
+}
 
-
-/* LINKS & UNDERLINE */
+/* ─── NAV LINK CONTAINER (for active underline positioning) ────────── */
 .nav-item-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
 
+/* ─── NAV LINKS ─────────────────────────────────────────────────────
+   spec (image3 / image9): font Instrument Sans, weight 600 (SemiBold),
+   size 22px, line-height 100%, letter-spacing 0%, color #000000
+   Inactive links appear as #737171 (grey) from existing CSS
+   ────────────────────────────────────────────────────────────────── */
 .nav-link {
-    background: none;
-    border: none;
-    font-family: 'Instrument Sans';
-    font-size: 16px;
-    font-weight: 500;
-    color: #737171;
-    cursor: pointer;
-    padding: 5px 0;
-    transition: color 0.2s ease;
+  background: none;
+  border: none;
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 500;           /* inactive = medium weight */
+  color: #000000;
+  cursor: pointer;
+  padding: 5px 0;
+  transition: color 0.2s ease;
+  line-height: 100%;
+  letter-spacing: 0;
+  white-space: nowrap;
+  width: auto;
+  height: auto;
+  display: inline-flex;
+  align-items: center;
 }
 
 .nav-link:hover {
-    color: #000000;
+  color: #000000;
 }
 
+/* Active state: bold weight + black */
 .nav-link.active {
-    color: #000000;
-    font-weight: 700;
+  color: #000000;
+  font-weight: 700;
 }
 
+/* ─── ACTIVE UNDERLINE ──────────────────────────────────────────────
+   Black 2px underline, full width of nav item, sits 10px below text
+   ────────────────────────────────────────────────────────────────── */
 .active-underline {
-    width: 100%;
-    height: 2px;
-    background-color: #000000;
-    position: absolute;
-    bottom: -10px;
+  width: 100%;
+  height: 2px;
+  background-color: #000000;
+  position: absolute;
+  bottom: -8px;
+  left: 0;
 }
 
-
-/* CALL BUTTON */
+/* ─── CALL NOW BUTTON ───────────────────────────────────────────────
+   spec (image8): 251×46px, bg #6799FE, border-radius 8px
+   spec (image10): text "Call Now", font Instrument Sans, weight 600,
+   size 22px, color #FFFFFF
+   spec (image2): phone icon 24×24
+   spec (image10): top:37px, left:1277px in full layout
+   ────────────────────────────────────────────────────────────────── */
 .call-btn-blue {
-    background-color: #6799FE;
-    color: white;
-    padding: 12px 28px;
-    border-radius: 8px;
-    border: none;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
+  background-color: #6799FE;
+  color: #FFFFFF;
+  padding: 12px 24px;
+  border-radius: 8px;
+  border: none;
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
 }
 
+.call-btn-blue:hover {
+  background-color: #5585e8;
+}
